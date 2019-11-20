@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Awesome swift dev's home" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="SWIFT반복문(Loop) 주어진 조건에 따라 특정코드를 반복적으로 실행  For 반복문 횟수에 의한 반복 for ~ in {...} in키워드를 사용해서 정해진 횟수만큼 주어진 코드블록을 반복해서 실행 정의된 루프상수는 for ~ in구문에서만 사용  123for &amp;lt;루프상수&amp;gt; in &amp;lt;순회 대상&amp;gt; &amp;#123;    &amp;lt;실행할 구문&amp;">
+<meta name="keywords" content="Swift,Loop,친절한재은씨,swift기초">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SWIFT-Loop">
+<meta property="og:url" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;SWIFT-Loop&#x2F;index.html">
+<meta property="og:site_name" content="Awesome swift dev&#39;s home">
+<meta property="og:description" content="SWIFT반복문(Loop) 주어진 조건에 따라 특정코드를 반복적으로 실행  For 반복문 횟수에 의한 반복 for ~ in {...} in키워드를 사용해서 정해진 횟수만큼 주어진 코드블록을 반복해서 실행 정의된 루프상수는 for ~ in구문에서만 사용  123for &amp;lt;루프상수&amp;gt; in &amp;lt;순회 대상&amp;gt; &amp;#123;    &amp;lt;실행할 구문&amp;">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-20T02:31:41.379Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://eunyuni.github.io/2019/11/SWIFT-Loop/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>SWIFT-Loop | Awesome swift dev's home</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Awesome swift dev's home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/11/SWIFT-Loop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="eunyuni">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Awesome swift dev's home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SWIFT-Loop
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-11-20 11:27:43 / Modified: 11:31:41" itemprop="dateCreated datePublished" datetime="2019-11-20T11:27:43+09:00">2019-11-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift-%EC%B9%9C%EC%A0%88%ED%95%9C-%EC%9E%AC%EC%9D%80%EC%94%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift-친절한 재은씨</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="SWIFT"><a href="#SWIFT" class="headerlink" title="SWIFT"></a>SWIFT</h1><h2 id="반복문-Loop"><a href="#반복문-Loop" class="headerlink" title="반복문(Loop)"></a>반복문(Loop)</h2><ul>
+<li>주어진 조건에 따라 특정코드를 반복적으로 실행</li>
+</ul>
+<h3 id="For-반복문"><a href="#For-반복문" class="headerlink" title="For 반복문"></a>For 반복문</h3><ul>
+<li><strong>횟수</strong>에 의한 반복</li>
+<li><code>for ~ in {...}</code> in키워드를 사용해서 정해진 횟수만큼 주어진 코드블록을 반복해서 실행</li>
+<li>정의된 루프상수는 for ~ in구문에서만 사용</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> &lt;루프상수&gt; <span class="keyword">in</span> &lt;순회 대상&gt; &#123;</span><br><span class="line">    &lt;실행할 구문&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>순회대상: 순번을 가지는 집단 자료형 또는 범위 (배열, 딕셔너리, 집합, 범위데이터, 문자열)</li>
+<li>루프상수: 순회대상이 포함하고있는 개별아이템들을 차례로 넘겨받아 임의저장. 자동재선언</li>
+<li>실행구문: for루프에 의해 반복 실행될 구문의 범위</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(row)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="구구단-만들기"><a href="#구구단-만들기" class="headerlink" title="구구단 만들기"></a>구구단 만들기</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> <span class="number">1</span>...<span class="number">9</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"3 * \(row) = \(row * 3)"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="1992-2019년"><a href="#1992-2019년" class="headerlink" title="1992~2019년"></a>1992~2019년</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> year <span class="keyword">in</span> <span class="number">1992</span>...<span class="number">2019</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\(year) 년도"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="루프상수가-필요하지-않을-경우"><a href="#루프상수가-필요하지-않을-경우" class="headerlink" title="루프상수가 필요하지 않을 경우"></a>루프상수가 필요하지 않을 경우</h4><ul>
+<li>그위치에 변수나 상수가 필요하지만 나한텐 필요가없어</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> size = <span class="number">5</span></span><br><span class="line"><span class="keyword">let</span> one = <span class="string">"공"</span></span><br><span class="line"><span class="keyword">var</span> keyword = <span class="string">"칠"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>...size &#123;</span><br><span class="line">    keyword = one + keyword</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\(keyword)"</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>결과: 공공공공공칠</code></p>
+<h4 id="다중루프-amp-이중루프"><a href="#다중루프-amp-이중루프" class="headerlink" title="다중루프 &amp; 이중루프"></a>다중루프 &amp; 이중루프</h4><ul>
+<li></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>...<span class="number">9</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="number">1</span>...<span class="number">9</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"\(i) * \(j) = \(i * j)"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<pre><code class="swift"></code></pre>
+<h3 id="While-반복문"><a href="#While-반복문" class="headerlink" title="While 반복문"></a>While 반복문</h3><ul>
+<li><strong>조건</strong>에 의한 반복</li>
+</ul>
+<h4 id="while-구문"><a href="#while-구문" class="headerlink" title="while 구문"></a>while 구문</h4><ul>
+<li>주어진 조건이 <strong>false</strong>가 될 때까지 계속 바복</li>
+<li>반복횟수를 예측하기 어려운 조건에서 사용</li>
+<li>매번 시작할때 조건을 평가해서 루프를 돌지말지 결정</li>
+<li>처음부터 거짓이면 실행 X</li>
+</ul>
+<h4 id="repeat-while-구문"><a href="#repeat-while-구문" class="headerlink" title="repeat~while 구문"></a>repeat~while 구문</h4><ul>
+<li>일단 주어진 코드를 실행하고 다음에 다시 실행할지 말지를 조건을 통해 평가</li>
+<li>조건이 거짓이라도 최소 한 번은 실행</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Swift/" rel="tag"># Swift</a>
+              <a href="/tags/Loop/" rel="tag"># Loop</a>
+              <a href="/tags/%EC%B9%9C%EC%A0%88%ED%95%9C%EC%9E%AC%EC%9D%80%EC%94%A8/" rel="tag"># 친절한재은씨</a>
+              <a href="/tags/swift%EA%B8%B0%EC%B4%88/" rel="tag"># swift기초</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/191112-git-study/" rel="next" title="191112-git-study">
+                  <i class="fa fa-chevron-left"></i> 191112-git-study
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SWIFT"><span class="nav-number">1.</span> <span class="nav-text">SWIFT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#반복문-Loop"><span class="nav-number">1.1.</span> <span class="nav-text">반복문(Loop)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-반복문"><span class="nav-number">1.1.1.</span> <span class="nav-text">For 반복문</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#구구단-만들기"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">구구단 만들기</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1992-2019년"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">1992~2019년</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#루프상수가-필요하지-않을-경우"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">루프상수가 필요하지 않을 경우</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#다중루프-amp-이중루프"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">다중루프 &amp; 이중루프</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#While-반복문"><span class="nav-number">1.1.2.</span> <span class="nav-text">While 반복문</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#while-구문"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">while 구문</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#repeat-while-구문"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">repeat~while 구문</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">eunyuni</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">eunyuni</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
