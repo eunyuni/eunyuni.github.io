@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Awesome swift dev's home" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="진법,  연산개념, 네이밍컨벤션 2진법, 8진법, 10진법, 16진법 간 변환 개념 숙지 2진법: 0과 1로 나타내는 숫자표기 2진법은 2로나누고, 8진법은 8로나누고 16진법은 16으로 나누는것  1234567891011122진법 자리수        16 8 4 2 1        0 0 0 0 0       *10110(2)26(8), 16+4+2 =">
+<meta name="keywords" content="2진법,8진법,10진법,16진법,연산,네이밍컨벤션">
+<meta property="og:type" content="article">
+<meta property="og:title" content="진법계산,  연산개념, 네이밍컨벤션">
+<meta property="og:url" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;homework&#x2F;index.html">
+<meta property="og:site_name" content="Awesome swift dev&#39;s home">
+<meta property="og:description" content="진법,  연산개념, 네이밍컨벤션 2진법, 8진법, 10진법, 16진법 간 변환 개념 숙지 2진법: 0과 1로 나타내는 숫자표기 2진법은 2로나누고, 8진법은 8로나누고 16진법은 16으로 나누는것  1234567891011122진법 자리수        16 8 4 2 1        0 0 0 0 0       *10110(2)26(8), 16+4+2 =">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-20T04:58:26.261Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://eunyuni.github.io/2019/11/homework/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>진법계산,  연산개념, 네이밍컨벤션 | Awesome swift dev's home</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Awesome swift dev's home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/11/homework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="eunyuni">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Awesome swift dev's home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          진법계산,  연산개념, 네이밍컨벤션
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-11-20 13:55:06 / Modified: 13:58:26" itemprop="dateCreated datePublished" datetime="2019-11-20T13:55:06+09:00">2019-11-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/homework/" itemprop="url" rel="index">
+                    <span itemprop="name">homework</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="진법-연산개념-네이밍컨벤션"><a href="#진법-연산개념-네이밍컨벤션" class="headerlink" title="진법,  연산개념, 네이밍컨벤션"></a>진법,  연산개념, 네이밍컨벤션</h1><hr>
+<h1 id="2진법-8진법-10진법-16진법-간-변환-개념-숙지"><a href="#2진법-8진법-10진법-16진법-간-변환-개념-숙지" class="headerlink" title="2진법, 8진법, 10진법, 16진법 간 변환 개념 숙지"></a><strong>2진법, 8진법, 10진법, 16진법 간 변환 개념 숙지</strong><br></h1><ul>
+<li>2진법: 0과 1로 나타내는 숫자표기</li>
+<li>2진법은 2로나누고, 8진법은 8로나누고 16진법은 16으로 나누는것</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">2진법 자리수        </span><br><span class="line">16 8 4 2 1       </span><br><span class="line"> 0 0 0 0 0       </span><br><span class="line"></span><br><span class="line">*10110(2)</span><br><span class="line">26(8), 16+4+2 = 22(10), 16(16)</span><br><span class="line">-2진법에서 다른진법으로 변환할땐 2가지방법이 있음</span><br><span class="line">1. 10진법 변환은 16+4+2=22</span><br><span class="line">2. 16진법 변환시엔 4자리씩 끊거나/10진법에서 나누기</span><br><span class="line">   (0001)(0110)=(1)(6)=16</span><br><span class="line">3. 8진법 변환시엔 3자리씩 끊기/10진법에서 나누기</span><br><span class="line">   (010)(110)=(2)(6)=26</span><br></pre></td></tr></table></figure>
+
+<h1 id="비트-연산자-논리-연산자-개념-숙지"><a href="#비트-연산자-논리-연산자-개념-숙지" class="headerlink" title="비트 연산자, 논리 연산자 개념 숙지"></a><strong>비트 연산자, 논리 연산자 개념 숙지</strong></h1><ul>
+<li>논리연산자: 참(True) 또는 거짓(False), 두자기 논리 값을 다루기 위한 연산자</li>
+<li>AND(&amp;&amp;) / OR(||) / NOT(!)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A B   AND(&amp;&amp;) OR(||)</span><br><span class="line">0 0     0       0</span><br><span class="line">0 1     0       1</span><br><span class="line">1 0     0       1</span><br><span class="line">1 1     1       1</span><br><span class="line"></span><br><span class="line">* AND는 곱하기, OR은 더하기로 생각하며 이해하기 쉽니다.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>비트연산자: 값을 반환한다. </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>AND연산. 둘다 참일때만 참</td>
+</tr>
+<tr>
+<td>l</td>
+<td>OR연산. 둘중 하나만 참이여도 참</td>
+</tr>
+<tr>
+<td>^</td>
+<td>XOR연산. 둘중 하나만 참일때 참</td>
+</tr>
+<tr>
+<td>~</td>
+<td>보수 연산.</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>왼쪽 시프트 연산자. 변수의 값을 왼쪽으로 지정된 비트 수 만큼 이동(*2)</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>오른쪽 시프트 연산자. 변수의 값을 오른쪽으로 지정된 비트 수 만큼 이동(/2)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">예시) a = 60 (0011 1100) / b = 13 (0000 1101)</span><br><span class="line"></span><br><span class="line">  0011 1100   0011 1100   0011 1100</span><br><span class="line">&amp; 0000 1101 | 0000 1101 ^ 0000 1101</span><br><span class="line">----------- ----------- -----------</span><br><span class="line">  0000 1100   0011 1101   0011 0001</span><br><span class="line">  </span><br><span class="line">~ 0011 1100   0011 1100 &lt;&lt; 1   0011 1100 &gt;&gt; 1</span><br><span class="line">-----------   --------------   --------------</span><br><span class="line">  1100 0011   0111 1000 (120)  0001 1110 (30)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Swift-네이밍-컨벤션-이해하기"><a href="#Swift-네이밍-컨벤션-이해하기" class="headerlink" title="Swift 네이밍 컨벤션 이해하기"></a><strong>Swift 네이밍 컨벤션 이해하기</strong></h1><ul>
+<li>코드는 쓰는 시간만큼이나 읽는 시간도 엄청 많이 소요된다.</li>
+<li>프로그래머 업무의 절반 이상은 이름 짓기</li>
+</ul>
+<h3 id="위키위키위키위키위키백과"><a href="#위키위키위키위키위키백과" class="headerlink" title="위키위키위키위키위키백과!"></a><strong>위키위키위키위키위키백과!</strong></h3><h2 id="PascalC-ase-파스칼-표기법"><a href="#PascalC-ase-파스칼-표기법" class="headerlink" title="PascalC**ase = 파스칼 표기법"></a>P<strong>ascal</strong>C**ase = 파스칼 표기법</h2><ul>
+<li>첫 단어를 대문자로 시작하는 표기법<ul>
+<li>예) int MyFirstVariable; </li>
+</ul>
+</li>
+<li>Swift 에서는 filename, class, struct, enum, protocol 및 type 에 대해 이것을 사용</li>
+</ul>
+<h2 id="camelCase-카멜-표기법"><a href="#camelCase-카멜-표기법" class="headerlink" title="camelCase = 카멜 표기법"></a>camel<strong>C</strong>ase = 카멜 표기법</h2><ul>
+<li>각 단어의 첫문자를 대문자로 표기하고 붙여쓰되, 맨처음 문자는 소문자로 표기</li>
+<li>띄어쓰기 대신 대문자로 단어를 구분하는 표기방식</li>
+<li>변수명을 모두 소문자로 쓴다. 여러 단어가 이어지는 경우 첫단어를 제외하고 각 단어의 첫글자만 대문자로 지정해 주는 방식.<ul>
+<li>예) int myFirstVariable; </li>
+</ul>
+</li>
+<li>선언한 변수는 세단어로 되어있다. my, first, variabl</li>
+<li>모두 소문자로 작성하되, 첫단어를 제외한 각 단어의 첫글자를 대문자로 쓴다.</li>
+<li>Swift 에서는 변수명, 함수, 메서드 등 pascal case 이외에 모두 camel case 사용</li>
+</ul>
+<h2 id="실수를-표현하기-위한-고정-소수점-부동-소수점-방식-IEEE-754-이-어떻게-다른지"><a href="#실수를-표현하기-위한-고정-소수점-부동-소수점-방식-IEEE-754-이-어떻게-다른지" class="headerlink" title="실수를 표현하기 위한 고정 소수점, 부동 소수점 방식 (IEEE 754)이 어떻게 다른지"></a>실수를 표현하기 위한 고정 소수점, 부동 소수점 방식 (IEEE 754)이 어떻게 다른지</h2><ul>
+<li>고정소수점: 말 그대로 소수점이 고정된 형태<ul>
+<li>실수를 정수부와 소수부로 분할표현해서 비교적 단순</li>
+<li>표현의 범위가 넓지 않음</li>
+<li>간단한 성적처리조차 힘듬</li>
+</ul>
+</li>
+<li>나. 부동소수점: 소수점 이동이 가능<ul>
+<li>실수를 가수부+지수부로 나누어 표현</li>
+<li>가수: 실수의 실제값</li>
+<li>지수: 크기를 표현, 가수의 어디쯤에 소수점이 있는지를 나타냄</li>
+<li>즉 지수의 값에 따라 소수점이 움직이기때문에 이방식으로 표현하는 방법을 부동소수점 이라고 한다.</li>
+<li>고정소수점과는 다르게 표현할 수 있는 범위가 넓어짐</li>
+<li>가수부가 지수부보다 길어서 정밀도가 비교적 충분(무한하진 않음)</li>
+</ul>
+</li>
+</ul>
+<h3 id="IEEE-754-위키백과"><a href="#IEEE-754-위키백과" class="headerlink" title="IEEE 754 위키백과"></a>IEEE 754 <a href="https://ko.wikipedia.org/wiki/IEEE_754" target="_blank" rel="noopener">위키백과</a></h3><ul>
+<li><p>부동소수점 표현 <a href="https://www.youtube.com/watch?v=8afbTaA-gOQ&t=313s" target="_blank" rel="noopener">유튜브</a></p>
+</li>
+<li><p>컴퓨터에서 부동소수점을 표현하는 가장 널리 쓰이는 표준.</p>
+</li>
+</ul>
+<h2 id="컴퓨터-동작-개념-이해를-위한-동영상-시청"><a href="#컴퓨터-동작-개념-이해를-위한-동영상-시청" class="headerlink" title="컴퓨터 동작 개념 이해를 위한 동영상 시청"></a>컴퓨터 동작 개념 이해를 위한 동영상 시청</h2><ul>
+<li>How transistors work<ul>
+<li><a href="https://www.youtube.com/watch?v=WhNyURBiJcUInside" target="_blank" rel="noopener">시청1</a></li>
+</ul>
+</li>
+<li>your computer<ul>
+<li><a href="https://www.youtube.com/watch?v=AkFi90lZmXA" target="_blank" rel="noopener">시청2</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/2%EC%A7%84%EB%B2%95/" rel="tag"># 2진법</a>
+              <a href="/tags/8%EC%A7%84%EB%B2%95/" rel="tag"># 8진법</a>
+              <a href="/tags/10%EC%A7%84%EB%B2%95/" rel="tag"># 10진법</a>
+              <a href="/tags/16%EC%A7%84%EB%B2%95/" rel="tag"># 16진법</a>
+              <a href="/tags/%EC%97%B0%EC%82%B0/" rel="tag"># 연산</a>
+              <a href="/tags/%EB%84%A4%EC%9D%B4%EB%B0%8D%EC%BB%A8%EB%B2%A4%EC%85%98/" rel="tag"># 네이밍컨벤션</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/SWIFT-Loop/" rel="next" title="SWIFT-Loop">
+                  <i class="fa fa-chevron-left"></i> SWIFT-Loop
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#진법-연산개념-네이밍컨벤션"><span class="nav-number">1.</span> <span class="nav-text">진법,  연산개념, 네이밍컨벤션</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2진법-8진법-10진법-16진법-간-변환-개념-숙지"><span class="nav-number">2.</span> <span class="nav-text">2진법, 8진법, 10진법, 16진법 간 변환 개념 숙지</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#비트-연산자-논리-연산자-개념-숙지"><span class="nav-number">3.</span> <span class="nav-text">비트 연산자, 논리 연산자 개념 숙지</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Swift-네이밍-컨벤션-이해하기"><span class="nav-number">4.</span> <span class="nav-text">Swift 네이밍 컨벤션 이해하기</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#위키위키위키위키위키백과"><span class="nav-number">4.0.1.</span> <span class="nav-text">위키위키위키위키위키백과!</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PascalC-ase-파스칼-표기법"><span class="nav-number">4.1.</span> <span class="nav-text">PascalC**ase = 파스칼 표기법</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#camelCase-카멜-표기법"><span class="nav-number">4.2.</span> <span class="nav-text">camelCase = 카멜 표기법</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#실수를-표현하기-위한-고정-소수점-부동-소수점-방식-IEEE-754-이-어떻게-다른지"><span class="nav-number">4.3.</span> <span class="nav-text">실수를 표현하기 위한 고정 소수점, 부동 소수점 방식 (IEEE 754)이 어떻게 다른지</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IEEE-754-위키백과"><span class="nav-number">4.3.1.</span> <span class="nav-text">IEEE 754 위키백과</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#컴퓨터-동작-개념-이해를-위한-동영상-시청"><span class="nav-number">4.4.</span> <span class="nav-text">컴퓨터 동작 개념 이해를 위한 동영상 시청</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">eunyuni</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">eunyuni</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
