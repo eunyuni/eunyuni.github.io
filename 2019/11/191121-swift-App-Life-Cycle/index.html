@@ -51,25 +51,22 @@
   };
 </script>
 
-  <meta name="description" content="X-code   New Project   Organization Identifier: 일반적인 url의 반대로 입력 Bundle identifier: 파일명으로 인식 use core data: 데이터를 인터넷이아니고 자체앱에 쓸때 Include Unit tests: 내가 해놓은 코드를 테스트해서 이상이 없는지 확인하기 위한 테스트. 코드를 짜서 미리 앱이">
+  <meta name="description" content="App Life Cycle   Model: 데이터를 저장하고 사용하는내용 (유저정보, 게임데이터, 지도정보, 각종데이터를 다루기위한 코드들) View: 아이폰앱에서 우리가 표현하고싶은 View, 사용자가 직접보게되는 화면구성에 사용되는 Dbject, 한개 또는 여러개가 될수도 있다. Controller: View와 Model사이의 중간 전달자역할. Mode">
 <meta name="keywords" content="Swift,swift기초,App Life Cycle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="191121-swift-App Life Cycle">
 <meta property="og:url" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;index.html">
 <meta property="og:site_name" content="Awesome swift dev&#39;s home">
-<meta property="og:description" content="X-code   New Project   Organization Identifier: 일반적인 url의 반대로 입력 Bundle identifier: 파일명으로 인식 use core data: 데이터를 인터넷이아니고 자체앱에 쓸때 Include Unit tests: 내가 해놓은 코드를 테스트해서 이상이 없는지 확인하기 위한 테스트. 코드를 짜서 미리 앱이">
+<meta property="og:description" content="App Life Cycle   Model: 데이터를 저장하고 사용하는내용 (유저정보, 게임데이터, 지도정보, 각종데이터를 다루기위한 코드들) View: 아이폰앱에서 우리가 표현하고싶은 View, 사용자가 직접보게되는 화면구성에 사용되는 Dbject, 한개 또는 여러개가 될수도 있다. Controller: View와 Model사이의 중간 전달자역할. Mode">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;xcode1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;xcode2.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;xcode3.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;xcode4.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;xcode5.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;xcode6.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;xcode7.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;xcode8.png">
-<meta property="og:updated_time" content="2019-11-21T11:31:49.078Z">
+<meta property="og:updated_time" content="2019-11-22T10:32:17.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;xcode1.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191121-swift-App-Life-Cycle&#x2F;xcode4.png">
 
 <link rel="canonical" href="https://eunyuni.github.io/2019/11/191121-swift-App-Life-Cycle/">
 
@@ -221,10 +218,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-11-21 19:27:38 / Modified: 20:31:49" itemprop="dateCreated datePublished" datetime="2019-11-21T19:27:38+09:00">2019-11-21</time>
+              <time title="Created: 2019-11-21 19:27:38" itemprop="dateCreated datePublished" datetime="2019-11-21T19:27:38+09:00">2019-11-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-22 19:32:17" itemprop="dateModified" datetime="2019-11-22T19:32:17+09:00">2019-11-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -248,28 +251,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1> X-code </h1>
-
-<h1 id="New-Project"><a href="#New-Project" class="headerlink" title="New Project"></a>New Project</h1><img src="/2019/11/191121-swift-App-Life-Cycle/xcode1.png" class="" title="xcode1">
-
-<ul>
-<li>Organization Identifier: 일반적인 url의 반대로 입력</li>
-<li>Bundle identifier: 파일명으로 인식</li>
-<li>use core data: 데이터를 인터넷이아니고 자체앱에 쓸때</li>
-<li>Include Unit tests: 내가 해놓은 코드를 테스트해서 이상이 없는지 확인하기 위한 테스트. 코드를 짜서 미리 앱이 돌아가기 전에 체크하는것</li>
-</ul>
-<img src="/2019/11/191121-swift-App-Life-Cycle/xcode2.png" class="" title="xcode2">
-
-<ul>
-<li>체크하면 깃과 연동해줌 (옵션)</li>
-</ul>
-<img src="/2019/11/191121-swift-App-Life-Cycle/xcode3.png" class="" title="xcode3">
-
-<ul>
-<li>왼쪽부터 두개의 아이콘은 swiftUI</li>
-<li>command + shift + L: 단축키</li>
-</ul>
-<h1 id="App-Life-Cycle"><a href="#App-Life-Cycle" class="headerlink" title="App Life Cycle"></a>App Life Cycle</h1><img src="/2019/11/191121-swift-App-Life-Cycle/xcode4.png" class="" title="xcode4">
+        <h1 id="App-Life-Cycle"><a href="#App-Life-Cycle" class="headerlink" title="App Life Cycle"></a>App Life Cycle</h1><img src="/2019/11/191121-swift-App-Life-Cycle/xcode4.png" class="" title="xcode4">
 
 <ul>
 <li>Model: 데이터를 저장하고 사용하는내용 (유저정보, 게임데이터, 지도정보, 각종데이터를 다루기위한 코드들)</li>
@@ -387,7 +369,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text"> X-code </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#New-Project"><span class="nav-number">2.</span> <span class="nav-text">New Project</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#App-Life-Cycle"><span class="nav-number">3.</span> <span class="nav-text">App Life Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Main-run-loop"><span class="nav-number">4.</span> <span class="nav-text">Main run loop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#State-changes-in-iOS-app"><span class="nav-number">5.</span> <span class="nav-text">State changes in iOS app</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Execution-states-for-Apps"><span class="nav-number">6.</span> <span class="nav-text">Execution states for Apps</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Launch-time"><span class="nav-number">7.</span> <span class="nav-text">Launch time</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#App-Life-Cycle"><span class="nav-number">1.</span> <span class="nav-text">App Life Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Main-run-loop"><span class="nav-number">2.</span> <span class="nav-text">Main run loop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#State-changes-in-iOS-app"><span class="nav-number">3.</span> <span class="nav-text">State changes in iOS app</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Execution-states-for-Apps"><span class="nav-number">4.</span> <span class="nav-text">Execution states for Apps</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Launch-time"><span class="nav-number">5.</span> <span class="nav-text">Launch time</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -401,7 +383,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
