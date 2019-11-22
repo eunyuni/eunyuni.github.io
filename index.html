@@ -212,7 +212,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-11-22 18:42:33 / Modified: 18:49:45" itemprop="dateCreated datePublished" datetime="2019-11-22T18:42:33+09:00">2019-11-22</time>
+              <time title="Created: 2019-11-22 18:42:33 / Modified: 19:09:09" itemprop="dateCreated datePublished" datetime="2019-11-22T18:42:33+09:00">2019-11-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,6 +246,42 @@
 <li>우리가 봤을땐 물리적인 크기는 동일하더라도 실제 픽셀 화소가 달라지다보니 개발시 좌표랑 픽셀수가 달라진다.</li>
 </ul>
 <img src="/2019/11/191122-swift-UIGuide/ui2.png" class="" title="ui2">
+
+<ul>
+<li>물리적인 크기는 크게 다르지 않더라도 픽셀의 차이는있다.</li>
+</ul>
+<img src="/2019/11/191122-swift-UIGuide/ui3.png" class="" title="ui3">
+
+<ul>
+<li>개발에서는 포인트를 사용한다.</li>
+</ul>
+<h1 id="iPhone-resolutions"><a href="#iPhone-resolutions" class="headerlink" title="iPhone resolutions"></a>iPhone resolutions</h1><img src="/2019/11/191122-swift-UIGuide/ui4.png" class="" title="ui4">
+
+<ul>
+<li>iPhone 해상도를위한 최고의 가이드</li>
+<li><a href="https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions" target="_blank" rel="noopener">참고</a></li>
+</ul>
+<h1 id="Layered-views"><a href="#Layered-views" class="headerlink" title="Layered views"></a>Layered views</h1><img src="/2019/11/191122-swift-UIGuide/ui5.png" class="" title="ui5">
+
+<ul>
+<li>하나의 화면을 볼때 몇개의 계층으로 나뉘어져있다.(View controller)</li>
+<li>내부에서는 레이어라는 존재로 뷰를 표현하며 UIwindow은 뷰를 표현하는 바탕</li>
+</ul>
+<h1 id="Coordinate-system-orientation"><a href="#Coordinate-system-orientation" class="headerlink" title="Coordinate system orientation"></a>Coordinate system orientation</h1><img src="/2019/11/191122-swift-UIGuide/ui6.png" class="" title="ui6">
+
+<ul>
+<li>x, y 축의 시작지점</li>
+<li>맥OS는 좌측 하단이 기준점이다.</li>
+</ul>
+<h1 id="View-Frame"><a href="#View-Frame" class="headerlink" title="View Frame"></a>View Frame</h1><img src="/2019/11/191122-swift-UIGuide/ui7.png" class="" title="ui7">
+
+<ul>
+<li>View Frame 의 좌표는 상위뷰를 기준으로 결정</li>
+<li>내가 어느뷰에서 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">nemo2</span><span class="params">(abb: UIView)</span></span> -&gt; <span class="type">UIView</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> grayNemo = <span class="type">UIView</span>()</span><br><span class="line">    grayNemo.frame = <span class="type">CGRect</span>(x: <span class="number">30</span>, y: <span class="number">30</span>, width: <span class="number">255</span>, height: <span class="number">545</span>)</span><br><span class="line">    grayNemo.backgroundColor = .systemGray3</span><br><span class="line">    abb.addSubview(grayNemo)</span><br><span class="line">    <span class="keyword">return</span> grayNemo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
 
       
     </div>
