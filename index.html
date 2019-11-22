@@ -212,7 +212,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-11-22 18:42:33 / Modified: 19:09:09" itemprop="dateCreated datePublished" datetime="2019-11-22T18:42:33+09:00">2019-11-22</time>
+              <time title="Created: 2019-11-22 18:42:33 / Modified: 19:28:55" itemprop="dateCreated datePublished" datetime="2019-11-22T18:42:33+09:00">2019-11-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,8 +238,9 @@
 
       
           <h1> UIGuide </h1>
+# iPhone X Resolution
 
-<h1 id="iPhone-X-Resolution"><a href="#iPhone-X-Resolution" class="headerlink" title="iPhone X Resolution"></a>iPhone X Resolution</h1><img src="/2019/11/191122-swift-UIGuide/ui1.png" class="" title="ui1">
+<img src="/2019/11/191122-swift-UIGuide/ui1.png" class="" title="ui1">
 
 <ul>
 <li>디스플레이가 좋아질수록 1point안에 pixels이 4개가 될수도 9개가 될수도있다.</li>
@@ -277,10 +278,22 @@
 
 <ul>
 <li>View Frame 의 좌표는 상위뷰를 기준으로 결정</li>
-<li>내가 어느뷰에서 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">nemo2</span><span class="params">(abb: UIView)</span></span> -&gt; <span class="type">UIView</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> grayNemo = <span class="type">UIView</span>()</span><br><span class="line">    grayNemo.frame = <span class="type">CGRect</span>(x: <span class="number">30</span>, y: <span class="number">30</span>, width: <span class="number">255</span>, height: <span class="number">545</span>)</span><br><span class="line">    grayNemo.backgroundColor = .systemGray3</span><br><span class="line">    abb.addSubview(grayNemo)</span><br><span class="line">    <span class="keyword">return</span> grayNemo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>내가 어느뷰에서 <code>addSubview</code> 했는지 상위뷰를 기준으로 x, y좌표가 정해진다.(주의!)</li>
+</ul>
+<img src="/2019/11/191122-swift-UIGuide/ui8.png" class="" title="ui8">
 
+<h1 id="Frame-and-Bounds"><a href="#Frame-and-Bounds" class="headerlink" title="Frame and Bounds"></a>Frame and Bounds</h1><img src="/2019/11/191122-swift-UIGuide/ui9.png" class="" title="ui9">
 
-</li>
+<ul>
+<li>frame</li>
+<li>bounds:  본인을 기준으로 좌표가 0.0부터 시작되서 이동</li>
+</ul>
+<img src="/2019/11/191122-swift-UIGuide/ui10.png" class="" title="ui10">
+
+<ul>
+<li>super view는 0,0에서 시작하고 sub view는 super view위에 올려져있으므로 frame상의 x, y가 다르다.</li>
+<li>frame으로 이동시에는 sub view도 함께 이동한다.</li>
+<li>brounds로 이동시에는 본인의 위치에서 이동한다.</li>
 </ul>
 
       
