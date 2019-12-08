@@ -212,7 +212,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-12-09 00:00:17 / Modified: 00:02:13" itemprop="dateCreated datePublished" datetime="2019-12-09T00:00:17+09:00">2019-12-09</time>
+              <time title="Created: 2019-12-09 00:00:17 / Modified: 00:07:53" itemprop="dateCreated datePublished" datetime="2019-12-09T00:00:17+09:00">2019-12-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,7 +267,8 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">isModalInPresentation = <span class="literal">true</span> <span class="comment">// 드래그로 끌어내려도 화면이 내려가지 않음</span></span><br><span class="line"><span class="comment">// FirstVC에서 넘겨줄때 사용해도되고, secondVC에서 직접 사용 할 수있음</span></span><br></pre></td></tr></table></figure>
 
 
-<h1 id="Presenting-나를-띄운-vs-Presented-내가-띄운"><a href="#Presenting-나를-띄운-vs-Presented-내가-띄운" class="headerlink" title="Presenting(나를 띄운!!!) vs Presented(내가 띄운!!!)"></a>Presenting(나를 띄운<del>!!!) vs Presented(내가 띄운</del>!!!)</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">presentingViewController?.view.backgroundColor = .orange</span><br><span class="line"><span class="comment">// 나를 띄운놈에게 접근해서 그놈의 값, 동작을 바꿔줄 수 있음</span></span><br><span class="line">presentedViewController?.view.backgroundColor = .black</span><br><span class="line"><span class="comment">// 내가 띄운놈에게 접근해서 값, 동작 변경도 가능</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">// nextView -&gt; View</span></span><br><span class="line">presentedViewController -&gt; <span class="literal">nil</span> <span class="comment">// 내가띄운것 - nextvc -&gt; 없음</span></span><br><span class="line">presentingViewController -&gt; <span class="type">ViewController</span> <span class="comment">// 나를띄움놈 - viewvc -&gt; nextvc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// FiestVc -&gt; SecondVC -&gt; ThirdVC</span></span><br><span class="line">presentingViewController?.presentingViewController.view.backgrond </span><br><span class="line"><span class="comment">// 3번뷰에서 1번뷰의 변경시 단계를거쳐서 가는 방법이있음</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3번에서 단계를 거치지않고 바로 닫고싶을경우</span></span><br><span class="line">presentingViewController?.presentingViewController?.dismiss(animated: <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Presenting-나를-띄운-vs-Presented-내가-띄운"><a href="#Presenting-나를-띄운-vs-Presented-내가-띄운" class="headerlink" title="Presenting(나를 띄운!!!) vs  Presented(내가 띄운!!!)"></a>Presenting(나를 띄운<del>!!!) vs  Presented(내가 띄운</del>!!!)</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">presentingViewController?.view.backgroundColor = .orange</span><br><span class="line"><span class="comment">// 나를 띄운놈에게 접근해서 그놈의 값, 동작을 바꿔줄 수 있음</span></span><br><span class="line">presentedViewController?.view.backgroundColor = .black</span><br><span class="line"><span class="comment">// 내가 띄운놈에게 접근해서 값, 동작 변경도 가능</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">// nextView -&gt; View</span></span><br><span class="line">presentedViewController -&gt; <span class="literal">nil</span> <span class="comment">// 내가띄운것 - nextvc -&gt; 없음</span></span><br><span class="line">presentingViewController -&gt; <span class="type">ViewController</span> <span class="comment">// 나를띄움놈 - viewvc -&gt; nextvc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// FiestVc -&gt; SecondVC -&gt; ThirdVC</span></span><br><span class="line">presentingViewController?.presentingViewController.view.backgrond </span><br><span class="line"><span class="comment">// 3번뷰에서 1번뷰의 변경시 단계를거쳐서 가는 방법이있음</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3번에서 단계를 거치지않고 바로 닫고싶을경우</span></span><br><span class="line">presentingViewController?.presentingViewController?.dismiss(animated: <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
 
 
 
@@ -429,10 +430,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-11-22 18:42:33 / Modified: 19:33:54" itemprop="dateCreated datePublished" datetime="2019-11-22T18:42:33+09:00">2019-11-22</time>
+              <time title="Created: 2019-11-22 18:42:33" itemprop="dateCreated datePublished" datetime="2019-11-22T18:42:33+09:00">2019-11-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-09 00:07:01" itemprop="dateModified" datetime="2019-12-09T00:07:01+09:00">2019-12-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
