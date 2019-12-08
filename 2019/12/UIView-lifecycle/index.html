@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Awesome swift dev's home" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="UIView lifecycle, Present, Full &amp;amp; Card ScreenUIViewController lifecycle init() - 생성 viewDidLoad (뷰가 로드됨) -&amp;gt; 초기화작업 &#x2F; 메모리상에서의 로드 &#x2F; 뷰가만들어질때 한번만 호출 viewWillAppear (뷰가 나타날것) -&amp;gt; 보여지기직전에 호출 &#x2F; 보여질때마">
+<meta name="keywords" content="Swift,swift기초,UIGuide,x-code">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIView lifecycle">
+<meta property="og:url" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;12&#x2F;UIView-lifecycle&#x2F;index.html">
+<meta property="og:site_name" content="Awesome swift dev&#39;s home">
+<meta property="og:description" content="UIView lifecycle, Present, Full &amp;amp; Card ScreenUIViewController lifecycle init() - 생성 viewDidLoad (뷰가 로드됨) -&amp;gt; 초기화작업 &#x2F; 메모리상에서의 로드 &#x2F; 뷰가만들어질때 한번만 호출 viewWillAppear (뷰가 나타날것) -&amp;gt; 보여지기직전에 호출 &#x2F; 보여질때마">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006tNbRwgy1g9of7xtc2zj30vo0u0thj.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006tNbRwgy1g9ogtqbkznj31ba0u04m8.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006tNbRwgy1g9pp6a9xqbj31cs0u0gzc.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006tNbRwgy1g9of0r274tj30u0103424.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006tNbRwgy1g9poli8kcej30u00v0n84.jpg">
+<meta property="og:updated_time" content="2019-12-08T15:02:13.207Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006tNbRwgy1g9of7xtc2zj30vo0u0thj.jpg">
+
+<link rel="canonical" href="https://eunyuni.github.io/2019/12/UIView-lifecycle/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>UIView lifecycle | Awesome swift dev's home</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Awesome swift dev's home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/12/UIView-lifecycle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="eunyuni">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Awesome swift dev's home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          UIView lifecycle
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-09 00:00:17 / Modified: 00:02:13" itemprop="dateCreated datePublished" datetime="2019-12-09T00:00:17+09:00">2019-12-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="UIView-lifecycle-Present-Full-amp-Card-Screen"><a href="#UIView-lifecycle-Present-Full-amp-Card-Screen" class="headerlink" title="UIView lifecycle, Present, Full &amp; Card Screen"></a>UIView lifecycle, Present, Full &amp; Card Screen</h1><h1 id="UIViewController-lifecycle"><a href="#UIViewController-lifecycle" class="headerlink" title="UIViewController lifecycle"></a>UIViewController lifecycle</h1><ul>
+<li>init() - 생성</li>
+<li>viewDidLoad (뷰가 로드됨) -&gt; 초기화작업 / 메모리상에서의 로드 / 뷰가만들어질때 한번만 호출</li>
+<li>viewWillAppear (뷰가 나타날것) -&gt; 보여지기직전에 호출 / 보여질때마다 호출</li>
+<li>viewDidAppear (뷰가 나타났다) -&gt; 뷰가 화면에 나타난 직후 / 보여진직후에 호출</li>
+<li>viewWillDisappear (뷰가 사라질 것이다) -&gt; 뷰가 사라지기 직전</li>
+<li>viewDidDisappear (뷰가 사라졌다) -&gt; 뷰컨트롤러가 뷰가 제거되었음을 알려줌 / 사라진직후</li>
+<li>deinit() - 해제</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9of7xtc2zj30vo0u0thj.jpg" alt="스크린샷 2019-12-07 오후 9.14.46"></p>
+<h2 id="버튼을-사용해서-다음화면으로-넘어갈때의-뷰생명주기를-확인해보자-ios12버전"><a href="#버튼을-사용해서-다음화면으로-넘어갈때의-뷰생명주기를-확인해보자-ios12버전" class="headerlink" title="버튼을 사용해서 다음화면으로 넘어갈때의 뷰생명주기를 확인해보자 ( ios12버전)"></a>버튼을 사용해서 다음화면으로 넘어갈때의 뷰생명주기를 확인해보자 <strong>( ios12버전)</strong></h2><ul>
+<li>첫화면이 뜨자 나타나는 함수</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">viewDidLoad--[뷰가로드됨]</span><br><span class="line">viewWillAppear--[뷰가나타날것임]</span><br><span class="line">viewDidAppear--[뷰가나타났다]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>버튼을 클릭시 나타나는 함수</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">----------- [ <span class="type">Nextvc</span> viewDidLoad ] ----------</span><br><span class="line"></span><br><span class="line">viewWillDisappear--[뷰가사라질것임]</span><br><span class="line"><span class="type">Nextvc</span> viewWillAppear--[뷰가나타날것임]</span><br><span class="line"><span class="type">Nextvc</span> viewDidAppear--[뷰가나타남]</span><br><span class="line">viewDidDisappear--[뷰가사라졌다]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Next View에서 버튼을클릭해서 첫화면으로 돌아가면 나타나는 함수</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Nextvc</span> viewWillDisappear--[뷰사라질것]</span><br><span class="line">viewWillAppear--[뷰가나타날것임]</span><br><span class="line">viewDidAppear--[뷰가나타났다]</span><br><span class="line"><span class="type">Nextvc</span> viewDidDisappear--[뷰사라짐]</span><br><span class="line"></span><br><span class="line">------------- [ <span class="type">NextVc</span> <span class="keyword">deinit</span>: 메모리상의삭제됨 ] -----------</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9ogtqbkznj31ba0u04m8.jpg" alt="뷰생명주기"></p>
+<h2 id="버튼을-사용해서-다음화면으로-넘어갈때의-뷰생명주기를-확인해보자-ios13버전"><a href="#버튼을-사용해서-다음화면으로-넘어갈때의-뷰생명주기를-확인해보자-ios13버전" class="headerlink" title="버튼을 사용해서 다음화면으로 넘어갈때의 뷰생명주기를 확인해보자 ( ios13버전)"></a>버튼을 사용해서 다음화면으로 넘어갈때의 뷰생명주기를 확인해보자 <strong>( ios13버전)</strong></h2><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9pp6a9xqbj31cs0u0gzc.jpg" alt="card style"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">isModalInPresentation = <span class="literal">true</span> <span class="comment">// 드래그로 끌어내려도 화면이 내려가지 않음</span></span><br><span class="line"><span class="comment">// FirstVC에서 넘겨줄때 사용해도되고, secondVC에서 직접 사용 할 수있음</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Presenting-나를-띄운-vs-Presented-내가-띄운"><a href="#Presenting-나를-띄운-vs-Presented-내가-띄운" class="headerlink" title="Presenting(나를 띄운!!!) vs Presented(내가 띄운!!!)"></a>Presenting(나를 띄운<del>!!!) vs Presented(내가 띄운</del>!!!)</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">presentingViewController?.view.backgroundColor = .orange</span><br><span class="line"><span class="comment">// 나를 띄운놈에게 접근해서 그놈의 값, 동작을 바꿔줄 수 있음</span></span><br><span class="line">presentedViewController?.view.backgroundColor = .black</span><br><span class="line"><span class="comment">// 내가 띄운놈에게 접근해서 값, 동작 변경도 가능</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">// nextView -&gt; View</span></span><br><span class="line">presentedViewController -&gt; <span class="literal">nil</span> <span class="comment">// 내가띄운것 - nextvc -&gt; 없음</span></span><br><span class="line">presentingViewController -&gt; <span class="type">ViewController</span> <span class="comment">// 나를띄움놈 - viewvc -&gt; nextvc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// FiestVc -&gt; SecondVC -&gt; ThirdVC</span></span><br><span class="line">presentingViewController?.presentingViewController.view.backgrond </span><br><span class="line"><span class="comment">// 3번뷰에서 1번뷰의 변경시 단계를거쳐서 가는 방법이있음</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3번에서 단계를 거치지않고 바로 닫고싶을경우</span></span><br><span class="line">presentingViewController?.presentingViewController?.dismiss(animated: <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>나를띄운놈에게 접근해서 그클래스의 프로퍼티에 접근하려했더니 되지않음.</li>
+<li>presentingViewController -&gt; UIView속성이고 나는 그 부모를 이용해서 view를 만들었기때문에 내가만든 클래스의 프로퍼티에 presentingViewController사용해서 접근할수는 없음.</li>
+<li>타입캐스팅을 통해 내가띄운놈이 ViewController이 맞는지 물어보고 맞다면 vc변수로 사용을하겠다. 그리고 그것에서 프로퍼티에 접근해서 변경해줄수 있다.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">guard</span> <span class="keyword">let</span> vc = presentingViewController <span class="keyword">as</span>? <span class="type">ViewController</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">vc.button.setTitle(<span class="string">"클릭"</span>, <span class="keyword">for</span>: .normal)</span><br></pre></td></tr></table></figure>
+
+<h1 id="ios12버전의-뷰방식-Full-Screen"><a href="#ios12버전의-뷰방식-Full-Screen" class="headerlink" title="ios12버전의 뷰방식(Full Screen)"></a>ios12버전의 뷰방식(Full Screen)</h1><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9of0r274tj30u0103424.jpg" alt="스크린샷 2019-12-07 오후 9.00.54"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nextVC.modalPresentationStyle = .fullScreen <span class="comment">//풀스크린모드 (#available(iOS 12.0, *))</span></span><br><span class="line">nextVC.modalPresentationStyle = .automatic <span class="comment">//오토메틱모드 (#available(iOS 13.0, *)) = 카드형</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ios-13버전의-Card-style"><a href="#ios-13버전의-Card-style" class="headerlink" title="ios 13버전의 Card style"></a>ios 13버전의 Card style</h2><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9poli8kcej30u00v0n84.jpg" alt="ios modalstyle"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Swift/" rel="tag"># Swift</a>
+              <a href="/tags/swift%EA%B8%B0%EC%B4%88/" rel="tag"># swift기초</a>
+              <a href="/tags/UIGuide/" rel="tag"># UIGuide</a>
+              <a href="/tags/x-code/" rel="tag"># x-code</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/swift-xcode/" rel="next" title="swift-xcode">
+                  <i class="fa fa-chevron-left"></i> swift-xcode
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UIView-lifecycle-Present-Full-amp-Card-Screen"><span class="nav-number">1.</span> <span class="nav-text">UIView lifecycle, Present, Full &amp; Card Screen</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UIViewController-lifecycle"><span class="nav-number">2.</span> <span class="nav-text">UIViewController lifecycle</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#버튼을-사용해서-다음화면으로-넘어갈때의-뷰생명주기를-확인해보자-ios12버전"><span class="nav-number">2.1.</span> <span class="nav-text">버튼을 사용해서 다음화면으로 넘어갈때의 뷰생명주기를 확인해보자 ( ios12버전)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#버튼을-사용해서-다음화면으로-넘어갈때의-뷰생명주기를-확인해보자-ios13버전"><span class="nav-number">2.2.</span> <span class="nav-text">버튼을 사용해서 다음화면으로 넘어갈때의 뷰생명주기를 확인해보자 ( ios13버전)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Presenting-나를-띄운-vs-Presented-내가-띄운"><span class="nav-number">3.</span> <span class="nav-text">Presenting(나를 띄운!!!) vs Presented(내가 띄운!!!)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ios12버전의-뷰방식-Full-Screen"><span class="nav-number">4.</span> <span class="nav-text">ios12버전의 뷰방식(Full Screen)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ios-13버전의-Card-style"><span class="nav-number">4.1.</span> <span class="nav-text">ios 13버전의 Card style</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">eunyuni</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">eunyuni</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

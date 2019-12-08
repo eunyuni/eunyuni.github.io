@@ -187,6 +187,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/12/UIView-lifecycle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="eunyuni">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Awesome swift dev's home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/UIView-lifecycle/" class="post-title-link" itemprop="url">UIView lifecycle</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-09 00:00:17 / Modified: 00:02:13" itemprop="dateCreated datePublished" datetime="2019-12-09T00:00:17+09:00">2019-12-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="UIView-lifecycle-Present-Full-amp-Card-Screen"><a href="#UIView-lifecycle-Present-Full-amp-Card-Screen" class="headerlink" title="UIView lifecycle, Present, Full &amp; Card Screen"></a>UIView lifecycle, Present, Full &amp; Card Screen</h1><h1 id="UIViewController-lifecycle"><a href="#UIViewController-lifecycle" class="headerlink" title="UIViewController lifecycle"></a>UIViewController lifecycle</h1><ul>
+<li>init() - 생성</li>
+<li>viewDidLoad (뷰가 로드됨) -&gt; 초기화작업 / 메모리상에서의 로드 / 뷰가만들어질때 한번만 호출</li>
+<li>viewWillAppear (뷰가 나타날것) -&gt; 보여지기직전에 호출 / 보여질때마다 호출</li>
+<li>viewDidAppear (뷰가 나타났다) -&gt; 뷰가 화면에 나타난 직후 / 보여진직후에 호출</li>
+<li>viewWillDisappear (뷰가 사라질 것이다) -&gt; 뷰가 사라지기 직전</li>
+<li>viewDidDisappear (뷰가 사라졌다) -&gt; 뷰컨트롤러가 뷰가 제거되었음을 알려줌 / 사라진직후</li>
+<li>deinit() - 해제</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9of7xtc2zj30vo0u0thj.jpg" alt="스크린샷 2019-12-07 오후 9.14.46"></p>
+<h2 id="버튼을-사용해서-다음화면으로-넘어갈때의-뷰생명주기를-확인해보자-ios12버전"><a href="#버튼을-사용해서-다음화면으로-넘어갈때의-뷰생명주기를-확인해보자-ios12버전" class="headerlink" title="버튼을 사용해서 다음화면으로 넘어갈때의 뷰생명주기를 확인해보자 ( ios12버전)"></a>버튼을 사용해서 다음화면으로 넘어갈때의 뷰생명주기를 확인해보자 <strong>( ios12버전)</strong></h2><ul>
+<li>첫화면이 뜨자 나타나는 함수</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">viewDidLoad--[뷰가로드됨]</span><br><span class="line">viewWillAppear--[뷰가나타날것임]</span><br><span class="line">viewDidAppear--[뷰가나타났다]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>버튼을 클릭시 나타나는 함수</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">----------- [ <span class="type">Nextvc</span> viewDidLoad ] ----------</span><br><span class="line"></span><br><span class="line">viewWillDisappear--[뷰가사라질것임]</span><br><span class="line"><span class="type">Nextvc</span> viewWillAppear--[뷰가나타날것임]</span><br><span class="line"><span class="type">Nextvc</span> viewDidAppear--[뷰가나타남]</span><br><span class="line">viewDidDisappear--[뷰가사라졌다]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Next View에서 버튼을클릭해서 첫화면으로 돌아가면 나타나는 함수</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Nextvc</span> viewWillDisappear--[뷰사라질것]</span><br><span class="line">viewWillAppear--[뷰가나타날것임]</span><br><span class="line">viewDidAppear--[뷰가나타났다]</span><br><span class="line"><span class="type">Nextvc</span> viewDidDisappear--[뷰사라짐]</span><br><span class="line"></span><br><span class="line">------------- [ <span class="type">NextVc</span> <span class="keyword">deinit</span>: 메모리상의삭제됨 ] -----------</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9ogtqbkznj31ba0u04m8.jpg" alt="뷰생명주기"></p>
+<h2 id="버튼을-사용해서-다음화면으로-넘어갈때의-뷰생명주기를-확인해보자-ios13버전"><a href="#버튼을-사용해서-다음화면으로-넘어갈때의-뷰생명주기를-확인해보자-ios13버전" class="headerlink" title="버튼을 사용해서 다음화면으로 넘어갈때의 뷰생명주기를 확인해보자 ( ios13버전)"></a>버튼을 사용해서 다음화면으로 넘어갈때의 뷰생명주기를 확인해보자 <strong>( ios13버전)</strong></h2><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9pp6a9xqbj31cs0u0gzc.jpg" alt="card style"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">isModalInPresentation = <span class="literal">true</span> <span class="comment">// 드래그로 끌어내려도 화면이 내려가지 않음</span></span><br><span class="line"><span class="comment">// FirstVC에서 넘겨줄때 사용해도되고, secondVC에서 직접 사용 할 수있음</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Presenting-나를-띄운-vs-Presented-내가-띄운"><a href="#Presenting-나를-띄운-vs-Presented-내가-띄운" class="headerlink" title="Presenting(나를 띄운!!!) vs Presented(내가 띄운!!!)"></a>Presenting(나를 띄운<del>!!!) vs Presented(내가 띄운</del>!!!)</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">presentingViewController?.view.backgroundColor = .orange</span><br><span class="line"><span class="comment">// 나를 띄운놈에게 접근해서 그놈의 값, 동작을 바꿔줄 수 있음</span></span><br><span class="line">presentedViewController?.view.backgroundColor = .black</span><br><span class="line"><span class="comment">// 내가 띄운놈에게 접근해서 값, 동작 변경도 가능</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">// nextView -&gt; View</span></span><br><span class="line">presentedViewController -&gt; <span class="literal">nil</span> <span class="comment">// 내가띄운것 - nextvc -&gt; 없음</span></span><br><span class="line">presentingViewController -&gt; <span class="type">ViewController</span> <span class="comment">// 나를띄움놈 - viewvc -&gt; nextvc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// FiestVc -&gt; SecondVC -&gt; ThirdVC</span></span><br><span class="line">presentingViewController?.presentingViewController.view.backgrond </span><br><span class="line"><span class="comment">// 3번뷰에서 1번뷰의 변경시 단계를거쳐서 가는 방법이있음</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3번에서 단계를 거치지않고 바로 닫고싶을경우</span></span><br><span class="line">presentingViewController?.presentingViewController?.dismiss(animated: <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>나를띄운놈에게 접근해서 그클래스의 프로퍼티에 접근하려했더니 되지않음.</li>
+<li>presentingViewController -&gt; UIView속성이고 나는 그 부모를 이용해서 view를 만들었기때문에 내가만든 클래스의 프로퍼티에 presentingViewController사용해서 접근할수는 없음.</li>
+<li>타입캐스팅을 통해 내가띄운놈이 ViewController이 맞는지 물어보고 맞다면 vc변수로 사용을하겠다. 그리고 그것에서 프로퍼티에 접근해서 변경해줄수 있다.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">guard</span> <span class="keyword">let</span> vc = presentingViewController <span class="keyword">as</span>? <span class="type">ViewController</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">vc.button.setTitle(<span class="string">"클릭"</span>, <span class="keyword">for</span>: .normal)</span><br></pre></td></tr></table></figure>
+
+<h1 id="ios12버전의-뷰방식-Full-Screen"><a href="#ios12버전의-뷰방식-Full-Screen" class="headerlink" title="ios12버전의 뷰방식(Full Screen)"></a>ios12버전의 뷰방식(Full Screen)</h1><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9of0r274tj30u0103424.jpg" alt="스크린샷 2019-12-07 오후 9.00.54"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nextVC.modalPresentationStyle = .fullScreen <span class="comment">//풀스크린모드 (#available(iOS 12.0, *))</span></span><br><span class="line">nextVC.modalPresentationStyle = .automatic <span class="comment">//오토메틱모드 (#available(iOS 13.0, *)) = 카드형</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ios-13버전의-Card-style"><a href="#ios-13버전의-Card-style" class="headerlink" title="ios 13버전의 Card style"></a>ios 13버전의 Card style</h2><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9poli8kcej30u00v0n84.jpg" alt="ios modalstyle"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/11/swift-xcode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1433,66 +1547,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/11/start-my-github-blod-with-hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="eunyuni">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Awesome swift dev's home">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/start-my-github-blod-with-hexo/" class="post-title-link" itemprop="url">start-my-github-blod-with-hexo</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-11-11 12:23:19 / Modified: 12:28:56" itemprop="dateCreated datePublished" datetime="2019-11-11T12:23:19+09:00">2019-11-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>hexo is awesome.</p>
-<h2 id="How-to-create-blog-with-hexo"><a href="#How-to-create-blog-with-hexo" class="headerlink" title="How to create blog with hexo"></a>How to create blog with hexo</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install node</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm -v</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo npm install -g hexo-cli</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo init ghblog</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ghblog</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo new post &#123;post-name&#125;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1541,7 +1595,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
