@@ -187,6 +187,188 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/12/OOP%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="eunyuni">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Awesome swift dev's home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/OOP%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/" class="post-title-link" itemprop="url">OOP기본 개념</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-10 20:01:07 / Modified: 20:02:06" itemprop="dateCreated datePublished" datetime="2019-12-10T20:01:07+09:00">2019-12-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="OOP-기본"><a href="#OOP-기본" class="headerlink" title="OOP 기본"></a>OOP 기본</h1><ul>
+<li><p><strong>객체</strong>: 클래스에서 생성된 변수, 클래스에서 파생되어 나오는 것, 혼자서 존재하는것은 의미가 없다. 그 객체와 다른 객체들간의 상호작용이 있을때 의미가 있다.</p>
+</li>
+<li><p><strong>객체지향</strong> <strong>프로그래밍</strong>: 객체들을 설정하고 그 객체들간의 관계를 설계하는 것</p>
+<ul>
+<li>내가 필요한 객체가 뭔지를 설계 하는 것</li>
+<li>각 객체들간의 어떤형태로 상호작용을 하도록 만들것인지</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;많은 개체들이 공통된 명칭을  가질 때 그것들은 언제나  또 하나의 이데아, 즉 형상을 갖는다. 가령 침대는 무수히 많지만 침대의 이데아, 즉 그 형상은 오직 하나이다. 여러가지 개개의 침대는 실재가 아니며 오직 그 이데아의 모사(模寫)에 의해 만들어졌을 뿐이다.”  - 플라톤</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>똑같은 이데아 = 틀, 클래스</p>
+</li>
+<li><p>이데아에 의해 만들어지게되는 실제 물건이나 형상 = 객체, 오브젝트</p>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9qo3gg6dvj31mv0u0quf.jpg" alt="Class, Object"></p>
+<p> <strong>[ Class ]</strong> </p>
+<ul>
+<li><p>추상 (abstract) , 표현 대상에 대한 이데아(형상)</p>
+</li>
+<li><p>이상적인 존재 (이미지, 설계도, 틀, 설명서)</p>
+</li>
+<li><p>공통의 특징</p>
+</li>
+<li><p>강아지라는 공통적인 개념(예시)</p>
+<p><strong>[ Object ]</strong></p>
+</li>
+<li><p>실체(instance) , 추상을 실체화한 대상</p>
+</li>
+<li><p>이데아의 모사</p>
+</li>
+<li><p>개별 속성</p>
+</li>
+<li><p>서로 다른 각각의 강아지들(예시)</p>
+</li>
+</ul>
+<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">5</span>             <span class="comment">// struct, Stack에 저장</span></span><br><span class="line"><span class="keyword">let</span> y = <span class="type">User</span>()    <span class="comment">// class, Heap에 저장</span></span><br><span class="line"><span class="keyword">let</span> z = <span class="type">User</span>() <span class="comment">// class, Heap에 저장</span></span><br><span class="line"> </span><br><span class="line">         x   y        z</span><br><span class="line"> [<span class="type">Stack</span>] | <span class="number">5</span> | <span class="number">0x5F17</span> | <span class="number">0x2C90</span> |</span><br><span class="line"> <span class="comment">// Stack -&gt; 처음부터 만들어지는 시점, 크기가 지정되어짐</span></span><br><span class="line"> </span><br><span class="line">        <span class="number">0x2C90</span>          <span class="number">0x5F16</span>     <span class="number">0x5F17</span></span><br><span class="line"> [<span class="type">Heap</span>] | z's user data | <span class="type">SomeData</span> | y's user data |</span><br><span class="line"> <span class="comment">// Heap -&gt; 실제데이터는 힙에저장. 참조타입.</span></span><br><span class="line"></span><br><span class="line"> --- <span class="keyword">in</span> <span class="type">Memory</span> ---</span><br><span class="line"> 값 타입(<span class="type">Value</span> <span class="type">Type</span>) - <span class="type">Stack</span></span><br><span class="line"> 참조 타입(<span class="type">Reference</span> <span class="type">Type</span>) - <span class="type">Stack</span> -&gt; <span class="type">Heap</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> &lt;#<span class="title">ClassName</span>&gt;: &lt;#<span class="title">SuperClassName</span>&gt;, &lt;#<span class="title">ProtocolName</span>...&gt; </span>&#123;</span><br><span class="line">  <span class="comment">// SuperClassName: 옵셔널, 상속받지않으면 생략가능</span></span><br><span class="line">  <span class="comment">// ProtocolName: 상속받지않으면 생략가능</span></span><br><span class="line">   &lt;#<span class="type">PropertyList</span>&gt;</span><br><span class="line">   &lt;#<span class="type">MethodList</span>&gt;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">let</span> &lt;#objectName&gt; = &lt;#<span class="type">ClassName</span>()&gt; <span class="comment">// 변수에 클래스를 상속</span></span><br><span class="line"> objectName.&lt;#propertyName&gt;    </span><br><span class="line"> objectName.&lt;#functionName()&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Class-Initialize-초기화-메서드"><a href="#Class-Initialize-초기화-메서드" class="headerlink" title="Class Initialize(초기화 메서드)"></a>Class Initialize(초기화 메서드)</h1><ul>
+<li><strong>초기화(init)가 불필요한 경우</strong> : 모든 저장 프로퍼티에 초기값이 설정되어 있음</li>
+<li><strong>초기화(init)가 필요한 경우</strong> : 저장 프로퍼티 중 하나 이상이 초기값 미설정됨</li>
+<li>모든 저장 프로퍼티 (Stored Properties)에 초기값이 설정된 경우 Init 메서드 작성 불필요</li>
+<li>객체 생성시 단순히 <code>ClassName()</code> 만으로 생성 가능</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">  <span class="keyword">let</span> color: <span class="type">String</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// init메서드를 다양하게 지정해줄 수 있다.</span></span><br><span class="line">  <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;                                      </span><br><span class="line">    <span class="comment">// 컬러는 고정되어있는 init</span></span><br><span class="line">    <span class="keyword">self</span>.name = name</span><br><span class="line">    color = <span class="string">"Brown"</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">init</span>(name: <span class="type">String</span>, color: <span class="type">String</span>) &#123;       </span><br><span class="line">    <span class="comment">// 두가지를 바꿀수있는 init</span></span><br><span class="line">    <span class="keyword">self</span>.name = name</span><br><span class="line">    <span class="keyword">self</span>.color = color</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">bowwow</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Dog Bowwow!"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h1><h2 id="Stored-Property-저장-프로퍼티"><a href="#Stored-Property-저장-프로퍼티" class="headerlink" title="Stored Property(저장 프로퍼티)"></a>Stored Property(저장 프로퍼티)</h2><ul>
+<li>Class ⭕️  Structure⭕️  Enum ❌</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StoredProperty</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> width = <span class="number">0.0</span></span><br><span class="line">  <span class="keyword">var</span> height = <span class="number">0.0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> stored = <span class="type">StoredProperty</span>()</span><br><span class="line">stored.width = <span class="number">123</span></span><br><span class="line">stored.height = <span class="number">456</span></span><br><span class="line">stored.width            <span class="comment">// 123</span></span><br><span class="line">stored.height            <span class="comment">// 456</span></span><br><span class="line"><span class="comment">// 저장된 값을 사용</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Lazy-Stored-Property-지연-저장-프로퍼티"><a href="#Lazy-Stored-Property-지연-저장-프로퍼티" class="headerlink" title="Lazy Stored Property(지연 저장 프로퍼티)"></a>Lazy Stored Property(지연 저장 프로퍼티)</h2><ul>
+<li>초기값이 인스턴스의 생성이 완료 될 때까지도 알 수 없는 외부 요인에 의존 할 때</li>
+<li>초기값이 복잡하거나 계산 비용이 많이 드는 설정을 필요로 할 때</li>
+<li>필요한 경우가 제한적일 때</li>
+<li>Class ⭕️  Structure ⭕️  Enumeration ❌</li>
+<li>한번 저장된 값은 직접 변경해주지 않는 이상 바뀌지 않는다.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LazyStoredProperty</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> width = <span class="number">10.0</span></span><br><span class="line">  <span class="keyword">var</span> height = <span class="number">20.0</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 1. 외부 요인이나 다른 설정에 기반</span></span><br><span class="line">  <span class="built_in">lazy</span> <span class="keyword">var</span> area = <span class="keyword">self</span>.width * <span class="keyword">self</span>.height    </span><br><span class="line">  <span class="comment">// lazy를 붙여주면 초기화가 끝나지 않아도 사용이 가능(area를 호출할때 비로소 만들어지기 때문)</span></span><br><span class="line">    </span><br><span class="line">  <span class="comment">// 2. 계산 비용이 많이 드는 상황</span></span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> hardWork = <span class="string">"실행하면 약 10초 이상 걸려야 하는 작업"</span></span><br><span class="line">  <span class="comment">// 화면을 띄우는순간 꼭 필요한 작업이 아닌데 lazy가아닌 일반 프로퍼티로 있으면 이작업을 실행후 화면을 띄울수 있기 때문에 사용자가 어떤 버튼을 눌렀을때만 필요한 작업이라면 미리할 필요가없기 때문에 이런상황에서 사용 </span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 3. 필요한 경우가 제한적인 상황(대부분 else로빠지는데 5% 상황만 true를 사용할때 메모리를 조금이라도 더아끼기 위해 초기화과정도 하지 않고 넘어가기 위해)</span></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">ifStatement</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="literal">true</span> &#123;               <span class="comment">// 5%</span></span><br><span class="line">      <span class="built_in">print</span>(area)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;            <span class="comment">// 95%</span></span><br><span class="line">      <span class="built_in">print</span>(width)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Computed-Property-연산-amp-계산-프로퍼티"><a href="#Computed-Property-연산-amp-계산-프로퍼티" class="headerlink" title="Computed Property(연산&amp;계산 프로퍼티)"></a>Computed Property(연산&amp;계산 프로퍼티)</h2><ul>
+<li>자료를 저장하지 않고 매번 호출할 때마다 새로 계산</li>
+<li>Class ⭕️  Structure ⭕️  Enumeration ⭕️</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Computed Property 사용</span></span><br><span class="line"><span class="keyword">var</span> &lt;#variablename&gt;: &lt;#type&gt; &#123;</span><br><span class="line">      <span class="keyword">get</span> &#123;</span><br><span class="line">          &lt;#statements&gt;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">set</span> &#123;</span><br><span class="line">          &lt;#variablename&gt; = newValue</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// 읽기전용 get, 쓸때는 set 도 붙임</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>get</strong>: 연산프로퍼티를 호출할때 보여지는 구간</li>
+<li><strong>Set</strong>: 연산프로퍼티에 값을 입력했을때 실행되는 구간 / 값을 저장할수 없으므로 저장프로퍼티를 이용한다.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ComputedProperty</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> width = <span class="number">5.0</span></span><br><span class="line">  <span class="keyword">var</span> height = <span class="number">5.0</span></span><br><span class="line">  </span><br><span class="line">  <span class="built_in">lazy</span> <span class="keyword">var</span> lazyArea = width * height</span><br><span class="line">  <span class="keyword">var</span> area: <span class="type">Double</span> &#123;        <span class="comment">// 연산프로퍼티: 매번 새롭게 계산하기위해</span></span><br><span class="line">    <span class="keyword">return</span> width * height   <span class="comment">// 읽기전용은 get생략 가능, 리턴도 생략 가능</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Stored + Computed get(read), set(write)</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">var</span> _koreanWon = <span class="number">0.0</span>  <span class="comment">// 저장프로포티</span></span><br><span class="line">  <span class="keyword">var</span> wonToDollar: <span class="type">Double</span> &#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> _koreanWon / <span class="number">1136.5</span></span><br><span class="line">      <span class="comment">// 저장프로퍼티의 값을 이용해서 연산을 함</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span> &#123;</span><br><span class="line">      _koreanWon = newValue </span><br><span class="line">      <span class="comment">// set은 값을 저장할 수 없으므로, 저장프로퍼티를 이용한다.</span></span><br><span class="line">     <span class="comment">// newValue 값을넣으면 여기로 들어옴. set에 새로들어오는 값을 newValue에 저장.</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> computed = <span class="type">ComputedProperty</span>()</span><br><span class="line">computed.area                            <span class="comment">// 25</span></span><br><span class="line">computed.lazyArea                    <span class="comment">// 25</span></span><br><span class="line"></span><br><span class="line">computed.width = <span class="number">10</span></span><br><span class="line">computed.area                            <span class="comment">// 50</span></span><br><span class="line">computed.lazyArea               <span class="comment">// 위에서 최초 초기화를 시켰기에 그대로 25</span></span><br><span class="line"></span><br><span class="line">computed.lazyArea = <span class="number">50.0</span>  <span class="comment">// lazy는 호출된 이후엔 직접 값을 변경시켜줘야함</span></span><br><span class="line">computed.lazyArea                    <span class="comment">// 50</span></span><br><span class="line"></span><br><span class="line">computed.width = <span class="number">20</span></span><br><span class="line">computed.height = <span class="number">20</span></span><br><span class="line">computed.area                          <span class="comment">// 400</span></span><br><span class="line">computed.lazyArea         <span class="comment">// 바꿔준 50으로 나옴</span></span><br><span class="line"></span><br><span class="line">computed.wonToDollar</span><br><span class="line">computed.wonToDollar = <span class="number">10000</span></span><br><span class="line">computed.wonToDollar <span class="comment">// 만원을 입력시 환율된값이 나오도록 연산프로퍼티를 만듬</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Property-Observer-프로퍼티-옵저버"><a href="#Property-Observer-프로퍼티-옵저버" class="headerlink" title="Property Observer(프로퍼티 옵저버)"></a>Property Observer(프로퍼티 옵저버)</h2><ul>
+<li>Class ⭕️  Structure ⭕️  Enumeration ❌</li>
+<li>newValue값이 들어오면 변경직전 및 직후 상태를 확인(반환)해 줄 수 있다.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 저장프로퍼티 옵저버 사용</span></span><br><span class="line"><span class="keyword">var</span> &lt;#variable&gt; name: &lt;#type&gt; = &lt;#value&gt; &#123;</span><br><span class="line">    <span class="keyword">willSet</span> &#123;</span><br><span class="line">        &lt;#statements&gt;</span><br><span class="line">      <span class="comment">// 변수의 값이 바뀌기 직전 호출</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">didSet</span> &#123;</span><br><span class="line">        &lt;#statments&gt;</span><br><span class="line">      <span class="comment">// 변경된 직후 호출</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>추가적인 작업을 자동으로 반복해야 할때 그것을 별도로 또다시 만들지 않고 변수만 수정해도 자동으로 반영되도록 </li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PropertyObserver</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> height = <span class="number">0.0</span></span><br><span class="line">  <span class="keyword">var</span> width = <span class="number">0.0</span> &#123;</span><br><span class="line">    <span class="keyword">willSet</span> &#123;</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"willSet :"</span>, width, <span class="string">"-&gt;"</span>, newValue) <span class="comment">// width = 0.0, newValue = 123.0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">didSet</span> &#123;</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"didSet :"</span>, oldValue, <span class="string">"-&gt;"</span>, width)  <span class="comment">// old = 0.0 , width = 123.0</span></span><br><span class="line">      height = width / <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obs = <span class="type">PropertyObserver</span>()</span><br><span class="line">obs.height = <span class="number">456</span></span><br><span class="line">obs.height</span><br><span class="line"></span><br><span class="line">obs.width = <span class="number">123</span></span><br><span class="line">obs.width</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">willSet : 0.0 -&gt; 123.0</span></span><br><span class="line"><span class="comment">didSet : 0.0 -&gt; 123.0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Type-Property-타입-프로퍼티"><a href="#Type-Property-타입-프로퍼티" class="headerlink" title="Type Property(타입 프로퍼티)"></a>Type Property(타입 프로퍼티)</h2><ul>
+<li>Shared(공유) / 하나의 타입이자 클래스가 모든것을 공유한다.</li>
+<li>Lazily Initialized(지연 특성을 지님)</li>
+<li>Class ⭕️  Structure ⭕️  Enumeration ⭕️</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 타입프로퍼티 사용</span></span><br><span class="line">선언 - <span class="keyword">static</span> <span class="keyword">let</span>(<span class="keyword">var</span>) &lt;#propertyName&gt;: &lt;#<span class="type">Type</span>&gt;</span><br><span class="line">       <span class="class"><span class="keyword">class</span> <span class="title">var</span> &lt;#<span class="title">propertyName</span>&gt;: &lt;#<span class="title">Type</span>&gt; </span>&#123; <span class="keyword">return</span> &lt;#code&gt; &#125;</span><br><span class="line">사용 - &lt;#<span class="type">TypeName</span>&gt;.&lt;#propertyName&gt;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">static</span>: <span class="keyword">override</span> 불가</span><br><span class="line"><span class="class"><span class="keyword">class</span>: 클래스에서만 사용 가능하고 <span class="title">computed</span> <span class="title">property</span> 형태로 사용. 서브클래스에서 <span class="title">override</span> 가능</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>static var = 타입 프로포티, 객체를 만들지 않고 클래스에서 바로 .으로 사용가능</li>
+<li>어떤 도형을 만들고싶을때 높이를 똑같이 공유하고싶다. 이럴때도 사용이 가능</li>
+<li>타입전체가 공유하고자 할것을 만들 때</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TypeProperty</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">var</span> unit: <span class="type">String</span> = <span class="string">"cm"</span>    </span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> width = <span class="number">5.0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> square = <span class="type">TypeProperty</span>() <span class="comment">// 타입을 객체로 만들어서 프로포티에 접근</span></span><br><span class="line">square.width                                </span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> square1 = <span class="type">TypeProperty</span>()</span><br><span class="line">square1.width = <span class="number">10.0</span>                <span class="comment">// width의 값을 바꿔준다</span></span><br><span class="line">square1.width</span><br><span class="line"></span><br><span class="line"><span class="type">TypeProperty</span>.unit   </span><br><span class="line"><span class="comment">//타입자체에서 프로포티에 접근하는 방식 = 타입 프로포티 // = "cm"</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\(square.width) \(TypeProperty.unit)"</span>)                <span class="comment">// 5.0 cm</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\(square1.width) \(TypeProperty.unit)"</span>)            <span class="comment">// 10.0 cm</span></span><br><span class="line"></span><br><span class="line"><span class="type">TypeProperty</span>.unit = <span class="string">"m"</span> </span><br><span class="line"><span class="comment">//단위를 전체적으로 바꾸고싶을때 unit자체를 바꿔준다. 모든 객체들이 공통으로 사용해야할 놈을 공유한다.</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\(square.width) \(TypeProperty.unit)"</span>)                <span class="comment">// 5.0 m</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\(square1.width) \(TypeProperty.unit)"</span>)            <span class="comment">// 10.0 m</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Property-종류-정리"><a href="#Property-종류-정리" class="headerlink" title="Property 종류 정리"></a>Property 종류 정리</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 저장 프로퍼티</span></span><br><span class="line">    <span class="keyword">var</span> value1 = <span class="number">0</span></span><br><span class="line">    <span class="comment">// 지연 저장 : 호출했을 때 초기화</span></span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> value2 = value1 + <span class="number">10</span></span><br><span class="line">    <span class="comment">// 연산</span></span><br><span class="line">    <span class="keyword">var</span> value3: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="comment">// 읽기</span></span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> myValue = <span class="number">50</span></span><br><span class="line">            <span class="keyword">return</span> value1 + myValue</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 쓰기</span></span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> myValue = newValue + <span class="number">10</span></span><br><span class="line">            value1 = myValue + <span class="number">20</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 프로퍼티 옵저버</span></span><br><span class="line">    <span class="keyword">var</span> label = <span class="type">UILabel</span>()</span><br><span class="line">    <span class="keyword">var</span> text = <span class="string">""</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span> &#123;</span><br><span class="line">            label.text = newValue</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            label.text = text</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> value4: <span class="type">Int</span> = <span class="number">100</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"Value4가 \(value4)에서 \(newValue)으로 바뀔 것이다."</span>)</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"Value4가 \(oldValue)에서 \(value4)으로 바뀌었다."</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 타입</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> value5: <span class="type">Int</span> = <span class="number">15</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> myclass = <span class="type">MyClass</span>()</span><br><span class="line">myclass.value1          <span class="comment">// 읽기</span></span><br><span class="line">myclass.value1 = <span class="number">10</span>     <span class="comment">// 쓰기</span></span><br><span class="line">myclass.value2</span><br><span class="line">myclass.value1 = <span class="number">20</span></span><br><span class="line">myclass.value2</span><br><span class="line">myclass.value3 = <span class="number">30</span></span><br><span class="line">myclass.value1</span><br><span class="line">myclass.value2</span><br><span class="line">myclass.value3</span><br><span class="line">myclass.value4 = <span class="number">200</span></span><br><span class="line">myclass.text = <span class="string">"집가고싶다"</span></span><br><span class="line"><span class="type">MyClass</span>.value5 = <span class="number">25</span></span><br><span class="line"><span class="type">MyClass</span>.value5</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/12/UIView-lifecycle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1497,63 +1679,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/11/start-my-github-blod-with-hexo-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="eunyuni">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Awesome swift dev's home">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/start-my-github-blod-with-hexo-1/" class="post-title-link" itemprop="url">start-my-github-blod-with-hexo</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-11 12:25:59" itemprop="dateCreated datePublished" datetime="2019-11-11T12:25:59+09:00">2019-11-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1602,7 +1727,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
