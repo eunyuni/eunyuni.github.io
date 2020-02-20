@@ -51,29 +51,23 @@
   };
 </script>
 
-  <meta name="description" content="UIGuide  # iPhone X Resolution     디스플레이가 좋아질수록 1point안에 pixels이 4개가 될수도 9개가 될수도있다. 우리가 봤을땐 물리적인 크기는 동일하더라도 실제 픽셀 화소가 달라지다보니 개발시 좌표랑 픽셀수가 달라진다.     물리적인 크기는 크게 다르지 않더라도 픽셀의 차이는있다.     개발에서는 포인트를 사용한다">
-<meta name="keywords" content="Swift,swift기초,UIGuide,x-code">
+  <meta name="description" content="Cocoapods을 설치해서 라이브러리 사용 터미널에서 cocoapods설치  1$ sudo gem install cocoapods     라이브러리를 사용할 프로젝트를 생성 후 터미널에서 해당파일경로로 이동  1$ pod init  -&amp;gt; Podfile라는 파일이 자동으로 생성된다  사용할 라이브러리를 vi로 파일을 열어 작성해준다  123456789">
+<meta name="keywords" content="Swift,Cocoapods,tab bar Library,Storybord">
 <meta property="og:type" content="article">
-<meta property="og:title" content="191122-swift-UIGuide">
-<meta property="og:url" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;index.html">
+<meta property="og:title" content="COCOAPODS-SnapKit사용">
+<meta property="og:url" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2020&#x2F;02&#x2F;COCOAPODS-SnapKit%EC%82%AC%EC%9A%A9&#x2F;index.html">
 <meta property="og:site_name" content="Awesome swift dev&#39;s home">
-<meta property="og:description" content="UIGuide  # iPhone X Resolution     디스플레이가 좋아질수록 1point안에 pixels이 4개가 될수도 9개가 될수도있다. 우리가 봤을땐 물리적인 크기는 동일하더라도 실제 픽셀 화소가 달라지다보니 개발시 좌표랑 픽셀수가 달라진다.     물리적인 크기는 크게 다르지 않더라도 픽셀의 차이는있다.     개발에서는 포인트를 사용한다">
+<meta property="og:description" content="Cocoapods을 설치해서 라이브러리 사용 터미널에서 cocoapods설치  1$ sudo gem install cocoapods     라이브러리를 사용할 프로젝트를 생성 후 터미널에서 해당파일경로로 이동  1$ pod init  -&amp;gt; Podfile라는 파일이 자동으로 생성된다  사용할 라이브러리를 vi로 파일을 열어 작성해준다  123456789">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui2.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui3.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui4.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui5.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui6.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui7.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui8.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui9.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui10.png">
-<meta property="og:updated_time" content="2019-12-08T15:07:01.699Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;0082zybpgy1gc31b5bohej31ek0hu76n.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;0082zybpgy1gc31jk5jakj31ed0u0430.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;0082zybpgy1gc31nbrp2aj31570u0jvf.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;0082zybpgy1gc31sbq17xj31800u0wi0.jpg">
+<meta property="og:updated_time" content="2020-02-20T10:35:35.732Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;eunyuni.github.io&#x2F;2019&#x2F;11&#x2F;191122-swift-UIGuide&#x2F;ui1.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;0082zybpgy1gc31b5bohej31ek0hu76n.jpg">
 
-<link rel="canonical" href="https://eunyuni.github.io/2019/11/191122-swift-UIGuide/">
+<link rel="canonical" href="https://eunyuni.github.io/2020/02/COCOAPODS-SnapKit%EC%82%AC%EC%9A%A9/">
 
 
 <script id="page-configurations">
@@ -87,7 +81,7 @@
   };
 </script>
 
-  <title>191122-swift-UIGuide | Awesome swift dev's home</title>
+  <title>COCOAPODS-SnapKit사용 | Awesome swift dev's home</title>
   
 
 
@@ -201,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/11/191122-swift-UIGuide/">
+    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2020/02/COCOAPODS-SnapKit%EC%82%AC%EC%9A%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -214,7 +208,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          191122-swift-UIGuide
+          COCOAPODS-SnapKit사용
         </h1>
 
         <div class="post-meta">
@@ -223,16 +217,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-22 18:42:33" itemprop="dateCreated datePublished" datetime="2019-11-22T18:42:33+09:00">2019-11-22</time>
+              <time title="Created: 2020-02-20 19:01:15 / Modified: 19:35:35" itemprop="dateCreated datePublished" datetime="2020-02-20T19:01:15+09:00">2020-02-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-09 00:07:01" itemprop="dateModified" datetime="2019-12-09T00:07:01+09:00">2019-12-09</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -256,64 +244,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1> UIGuide </h1>
-# iPhone X Resolution
+        <h1 id="Cocoapods을-설치해서-라이브러리-사용"><a href="#Cocoapods을-설치해서-라이브러리-사용" class="headerlink" title="Cocoapods을 설치해서 라이브러리 사용"></a>Cocoapods을 설치해서 라이브러리 사용</h1><ol>
+<li>터미널에서 cocoapods설치</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem install cocoapods</span><br></pre></td></tr></table></figure>
 
-<img src="/2019/11/191122-swift-UIGuide/ui1.png" class="" title="ui1">
 
+
+<ol start="2">
+<li>라이브러리를 사용할 프로젝트를 생성 후 터미널에서 해당파일경로로 이동</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod init</span><br></pre></td></tr></table></figure>
+
+<p>-&gt; Podfile라는 파일이 자동으로 생성된다</p>
+<ol start="3">
+<li>사용할 라이브러리를 vi로 파일을 열어 작성해준다</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ vi Podfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the next line to define a global platform for your project</span></span><br><span class="line"><span class="comment"># platform :ios, '9.0'</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'CocoaPodsExample'</span> <span class="keyword">do</span></span><br><span class="line">  <span class="comment"># Comment the next line if you don't want to use dynamic frameworks</span></span><br><span class="line">  use_frameworks!</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Pods for CocoaPodsExample</span></span><br><span class="line">  pod <span class="string">'RAMAnimatedTabBarController'</span> <span class="comment"># &lt;- 이부분에 작성!</span></span><br><span class="line">  pod <span class="string">'SnapKit'</span></span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li>업데이트 및 인스톨 -&gt; .xcworkspace로 새로운 파일이 생성됨</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ pod repo update</span><br><span class="line">$ pod install</span><br><span class="line"><span class="comment"># pod install을 이전에 한 번도 수행한 적이 없을 경우 약 5 ~ 15분 소요</span>  </span><br><span class="line"></span><br><span class="line">$ open [ProjectName].xcworkspace</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc31b5bohej31ek0hu76n.jpg" alt="library"></p>
 <ul>
-<li>디스플레이가 좋아질수록 1point안에 pixels이 4개가 될수도 9개가 될수도있다.</li>
-<li>우리가 봤을땐 물리적인 크기는 동일하더라도 실제 픽셀 화소가 달라지다보니 개발시 좌표랑 픽셀수가 달라진다.</li>
+<li><a href="**https://github.com/CocoaPods/CocoaPods**">COCOAPODS 주소</a></li>
 </ul>
-<img src="/2019/11/191122-swift-UIGuide/ui2.png" class="" title="ui2">
-
-<ul>
-<li>물리적인 크기는 크게 다르지 않더라도 픽셀의 차이는있다.</li>
+<h1 id="Animated-tab-bar-Library사용"><a href="#Animated-tab-bar-Library사용" class="headerlink" title="Animated-tab-bar Library사용"></a>Animated-tab-bar Library사용</h1><ul>
+<li><a href="https://github.com/Ramotion/animated-tab-bar" target="_blank" rel="noopener">Animated-tab-bar Library</a></li>
 </ul>
-<img src="/2019/11/191122-swift-UIGuide/ui3.png" class="" title="ui3">
+<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc31jk5jakj31ed0u0430.jpg" alt="animated-tab-bar"></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Just add the RAMAnimatedTabBarController folder to your project.</p>
+<p>or use <a href="https://cocoapods.org/" target="_blank" rel="noopener">CocoaPods</a> with Podfile:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="string">'RAMAnimatedTabBarController'</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>개발에서는 포인트를 사용한다.</li>
-</ul>
-<h1 id="iPhone-resolutions"><a href="#iPhone-resolutions" class="headerlink" title="iPhone resolutions"></a>iPhone resolutions</h1><img src="/2019/11/191122-swift-UIGuide/ui4.png" class="" title="ui4">
+<p>-&gt; 코코아 팟으로 라이브러리 설치!</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc31nbrp2aj31570u0jvf.jpg" alt="Usage"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1. 스토리보드에 새 UITabBarController를 만들어라.</span><br><span class="line"></span><br><span class="line">2. 스토리보드에서 UITabBarController의 클래스를 RAMAnimedTabBarController로 설정.</span><br><span class="line"></span><br><span class="line">3. 각 UITabBarItem에 대해 클래스를 RAMAnimedTabBarItem으로 설정.</span><br><span class="line"></span><br><span class="line">4. 각 RAM에 대한 사용자 지정 이미지 추가AnimedTabBarItem</span><br><span class="line"></span><br><span class="line">5. 각 RAMAnimedTabBarItem에 대한 애니메이션 추가:</span><br><span class="line">- NSObject 항목을 ViewController에 끌어다 놓기</span><br><span class="line">- 클래스를 ANIMATION_CLASS로 설정(여기서 ANIMATION_CLASS는 사용하려는 애니메이션의 클래스 이름임)</span><br><span class="line">- RAMAnimedTabBarItem의 아웃렛 애니메이션을 ANIMATION_CLASS 시연 비디오에 연결 5단계</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>iPhone 해상도를위한 최고의 가이드</li>
-<li><a href="https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions" target="_blank" rel="noopener">참고</a></li>
-</ul>
-<h1 id="Layered-views"><a href="#Layered-views" class="headerlink" title="Layered views"></a>Layered views</h1><img src="/2019/11/191122-swift-UIGuide/ui5.png" class="" title="ui5">
 
-<ul>
-<li>하나의 화면을 볼때 몇개의 계층으로 나뉘어져있다.(View controller)</li>
-<li>내부에서는 레이어라는 존재로 뷰를 표현하며 UIwindow은 뷰를 표현하는 바탕</li>
-</ul>
-<h1 id="Coordinate-system-orientation"><a href="#Coordinate-system-orientation" class="headerlink" title="Coordinate system orientation"></a>Coordinate system orientation</h1><img src="/2019/11/191122-swift-UIGuide/ui6.png" class="" title="ui6">
 
-<ul>
-<li>x, y 축의 시작지점</li>
-<li>맥OS는 좌측 하단이 기준점이다.</li>
-</ul>
-<h1 id="View-Frame"><a href="#View-Frame" class="headerlink" title="View Frame"></a>View Frame</h1><img src="/2019/11/191122-swift-UIGuide/ui7.png" class="" title="ui7">
-
-<ul>
-<li>View Frame 의 좌표는 상위뷰를 기준으로 결정</li>
-<li>내가 어느뷰에서 <code>addSubview</code> 했는지 상위뷰를 기준으로 x, y좌표가 정해진다.(주의!)</li>
-</ul>
-<img src="/2019/11/191122-swift-UIGuide/ui8.png" class="" title="ui8">
-
-<h1 id="Frame-and-Bounds"><a href="#Frame-and-Bounds" class="headerlink" title="Frame and Bounds"></a>Frame and Bounds</h1><img src="/2019/11/191122-swift-UIGuide/ui9.png" class="" title="ui9">
-
-<ul>
-<li>frame</li>
-<li>bounds:  본인을 기준으로 좌표가 0.0부터 시작되서 이동</li>
-</ul>
-<img src="/2019/11/191122-swift-UIGuide/ui10.png" class="" title="ui10">
-
-<ul>
-<li>super view는 0,0에서 시작하고 sub view는 super view위에 올려져있으므로 frame상의 x, y가 다르다.</li>
-<li>frame으로 이동시에는 sub view도 함께 이동한다.</li>
-<li>brounds로 이동시에는 본인의 위치에서 이동한다.</li>
-</ul>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc31sbq17xj31800u0wi0.jpg" alt="Ram"></p>
 
     </div>
 
@@ -324,26 +298,23 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Swift/" rel="tag"># Swift</a>
-              <a href="/tags/swift%EA%B8%B0%EC%B4%88/" rel="tag"># swift기초</a>
-              <a href="/tags/UIGuide/" rel="tag"># UIGuide</a>
-              <a href="/tags/x-code/" rel="tag"># x-code</a>
+              <a href="/tags/Cocoapods/" rel="tag"># Cocoapods</a>
+              <a href="/tags/tab-bar-Library/" rel="tag"># tab bar Library</a>
+              <a href="/tags/Storybord/" rel="tag"># Storybord</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/191121-swift-App-Life-Cycle/" rel="next" title="191121-swift-App Life Cycle">
-                  <i class="fa fa-chevron-left"></i> 191121-swift-App Life Cycle
+                <a href="/2019/12/OOP%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/" rel="next" title="OOP기본 개념">
+                  <i class="fa fa-chevron-left"></i> OOP기본 개념
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/swift-xcode/" rel="prev" title="swift-xcode">
-                  swift-xcode <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -382,7 +353,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text"> UIGuide </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iPhone-resolutions"><span class="nav-number">2.</span> <span class="nav-text">iPhone resolutions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Layered-views"><span class="nav-number">3.</span> <span class="nav-text">Layered views</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Coordinate-system-orientation"><span class="nav-number">4.</span> <span class="nav-text">Coordinate system orientation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#View-Frame"><span class="nav-number">5.</span> <span class="nav-text">View Frame</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Frame-and-Bounds"><span class="nav-number">6.</span> <span class="nav-text">Frame and Bounds</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cocoapods을-설치해서-라이브러리-사용"><span class="nav-number">1.</span> <span class="nav-text">Cocoapods을 설치해서 라이브러리 사용</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Animated-tab-bar-Library사용"><span class="nav-number">2.</span> <span class="nav-text">Animated-tab-bar Library사용</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">2.1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">2.2.</span> <span class="nav-text">Usage</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

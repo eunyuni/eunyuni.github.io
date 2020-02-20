@@ -187,6 +187,119 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2020/02/COCOAPODS-SnapKit%EC%82%AC%EC%9A%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="eunyuni">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Awesome swift dev's home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/COCOAPODS-SnapKit%EC%82%AC%EC%9A%A9/" class="post-title-link" itemprop="url">COCOAPODS-SnapKit사용</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-20 19:01:15 / Modified: 19:35:35" itemprop="dateCreated datePublished" datetime="2020-02-20T19:01:15+09:00">2020-02-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Cocoapods을-설치해서-라이브러리-사용"><a href="#Cocoapods을-설치해서-라이브러리-사용" class="headerlink" title="Cocoapods을 설치해서 라이브러리 사용"></a>Cocoapods을 설치해서 라이브러리 사용</h1><ol>
+<li>터미널에서 cocoapods설치</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem install cocoapods</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>라이브러리를 사용할 프로젝트를 생성 후 터미널에서 해당파일경로로 이동</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod init</span><br></pre></td></tr></table></figure>
+
+<p>-&gt; Podfile라는 파일이 자동으로 생성된다</p>
+<ol start="3">
+<li>사용할 라이브러리를 vi로 파일을 열어 작성해준다</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ vi Podfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the next line to define a global platform for your project</span></span><br><span class="line"><span class="comment"># platform :ios, '9.0'</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'CocoaPodsExample'</span> <span class="keyword">do</span></span><br><span class="line">  <span class="comment"># Comment the next line if you don't want to use dynamic frameworks</span></span><br><span class="line">  use_frameworks!</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Pods for CocoaPodsExample</span></span><br><span class="line">  pod <span class="string">'RAMAnimatedTabBarController'</span> <span class="comment"># &lt;- 이부분에 작성!</span></span><br><span class="line">  pod <span class="string">'SnapKit'</span></span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li>업데이트 및 인스톨 -&gt; .xcworkspace로 새로운 파일이 생성됨</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ pod repo update</span><br><span class="line">$ pod install</span><br><span class="line"><span class="comment"># pod install을 이전에 한 번도 수행한 적이 없을 경우 약 5 ~ 15분 소요</span>  </span><br><span class="line"></span><br><span class="line">$ open [ProjectName].xcworkspace</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc31b5bohej31ek0hu76n.jpg" alt="library"></p>
+<ul>
+<li><a href="**https://github.com/CocoaPods/CocoaPods**">COCOAPODS 주소</a></li>
+</ul>
+<h1 id="Animated-tab-bar-Library사용"><a href="#Animated-tab-bar-Library사용" class="headerlink" title="Animated-tab-bar Library사용"></a>Animated-tab-bar Library사용</h1><ul>
+<li><a href="https://github.com/Ramotion/animated-tab-bar" target="_blank" rel="noopener">Animated-tab-bar Library</a></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc31jk5jakj31ed0u0430.jpg" alt="animated-tab-bar"></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Just add the RAMAnimatedTabBarController folder to your project.</p>
+<p>or use <a href="https://cocoapods.org/" target="_blank" rel="noopener">CocoaPods</a> with Podfile:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="string">'RAMAnimatedTabBarController'</span></span><br></pre></td></tr></table></figure>
+
+<p>-&gt; 코코아 팟으로 라이브러리 설치!</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc31nbrp2aj31570u0jvf.jpg" alt="Usage"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1. 스토리보드에 새 UITabBarController를 만들어라.</span><br><span class="line"></span><br><span class="line">2. 스토리보드에서 UITabBarController의 클래스를 RAMAnimedTabBarController로 설정.</span><br><span class="line"></span><br><span class="line">3. 각 UITabBarItem에 대해 클래스를 RAMAnimedTabBarItem으로 설정.</span><br><span class="line"></span><br><span class="line">4. 각 RAM에 대한 사용자 지정 이미지 추가AnimedTabBarItem</span><br><span class="line"></span><br><span class="line">5. 각 RAMAnimedTabBarItem에 대한 애니메이션 추가:</span><br><span class="line">- NSObject 항목을 ViewController에 끌어다 놓기</span><br><span class="line">- 클래스를 ANIMATION_CLASS로 설정(여기서 ANIMATION_CLASS는 사용하려는 애니메이션의 클래스 이름임)</span><br><span class="line">- RAMAnimedTabBarItem의 아웃렛 애니메이션을 ANIMATION_CLASS 시연 비디오에 연결 5단계</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc31sbq17xj31800u0wi0.jpg" alt="Ram"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/12/OOP%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1520,165 +1633,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://eunyuni.github.io/2019/11/191112-git-study/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="eunyuni">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Awesome swift dev's home">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/191112-git-study/" class="post-title-link" itemprop="url">Git-Study</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-12 11:27:43" itemprop="dateCreated datePublished" datetime="2019-11-12T11:27:43+09:00">2019-11-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-20 13:24:13" itemprop="dateModified" datetime="2019-11-20T13:24:13+09:00">2019-11-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-github-나를-위한-테마적용하기-ㅎ"><a href="#1-github-나를-위한-테마적용하기-ㅎ" class="headerlink" title="1. github 나를 위한 테마적용하기 ㅎ.."></a>1. github 나를 위한 테마적용하기 ㅎ..</h2><p>[테마파일 가져오고 내프로젝트에 적용시키고 변환시켜서 깃허브에 넣어줌<br>설치절차를 알아보고, clone으로 소스를 내려받고, generate한것을 deploy해준다.]</p>
-<h3 id="적용하고-싶은-테마다운로드-Themes"><a href="#적용하고-싶은-테마다운로드-Themes" class="headerlink" title="적용하고 싶은 테마다운로드 Themes"></a>적용하고 싶은 테마다운로드 <strong><a href="https://hexo.io/themes/" target="_blank" rel="noopener">Themes</a></strong></h3><h3 id="ghblog-폴더로-이동-cd-해서-해당-git-복붙-빼야함-gt-다운로드"><a href="#ghblog-폴더로-이동-cd-해서-해당-git-복붙-빼야함-gt-다운로드" class="headerlink" title="ghblog 폴더로 이동(cd)해서 해당 git 복붙($빼야함) -&gt; 다운로드"></a><strong>ghblog 폴더로 이동(cd)</strong>해서 해당 <strong>git 복붙</strong>($빼야함) -&gt; 다운로드</h3><p>  <code>git clone https://github.com/theme-next/hexo-theme-next themes/next</code></p>
-<h3 id="config-yml-에서-이름변경하기-lt-테마-관련-설정부분"><a href="#config-yml-에서-이름변경하기-lt-테마-관련-설정부분" class="headerlink" title="_config.yml 에서 이름변경하기 &lt;- [테마]관련 설정부분"></a><strong>_config.yml</strong> 에서 이름변경하기 &lt;- [테마]관련 설정부분</h3><h3 id="vi-config-yml-vi-으로-들어가기"><a href="#vi-config-yml-vi-으로-들어가기" class="headerlink" title="vi _config.yml [vi]으로 들어가기"></a><code>vi _config.yml</code> [vi]으로 들어가기</h3><h3 id="vi-93번줄에서-theme-quot-landscape-quot-테마이름을-변경"><a href="#vi-93번줄에서-theme-quot-landscape-quot-테마이름을-변경" class="headerlink" title="vi 93번줄에서 theme: &quot;landscape&quot; 테마이름을 변경"></a>vi <strong>93번</strong>줄에서 <code>theme: &quot;landscape&quot;</code> 테마이름을 변경</h3><h3 id="hexo-clean-to-clean-Hexo’s-cache-기존-캐시파일을-날리고-재생성-하라는-의미"><a href="#hexo-clean-to-clean-Hexo’s-cache-기존-캐시파일을-날리고-재생성-하라는-의미" class="headerlink" title="hexo clean to clean Hexo’s cache. (기존 캐시파일을 날리고 재생성 하라는 의미)"></a>hexo clean to clean Hexo’s cache. (기존 캐시파일을 날리고 재생성 하라는 의미)</h3><h3 id="hexo-clean-amp-amp-hexo-generate-입력"><a href="#hexo-clean-amp-amp-hexo-generate-입력" class="headerlink" title="hexo clean &amp;&amp; hexo generate 입력"></a><code>hexo clean &amp;&amp; hexo generate</code> 입력</h3><h3 id="hexo-server-확인-gt-control-C-로-닫음"><a href="#hexo-server-확인-gt-control-C-로-닫음" class="headerlink" title="hexo server 확인 -&gt; [control+C]로 닫음"></a><code>hexo server</code> 확인 -&gt; [control+C]로 닫음</h3><h3 id="hexo-deploy-베포-바뀐-테마-적용"><a href="#hexo-deploy-베포-바뀐-테마-적용" class="headerlink" title="hexo deploy [베포] 바뀐 테마 적용."></a><code>hexo deploy</code> [베포] 바뀐 테마 적용.</h3><br>
-<br>
-<br>
-<br>
-
-
-
-<h2 id="2-Branch"><a href="#2-Branch" class="headerlink" title="2. Branch"></a>2. Branch</h2><p>[분기점을 생성하고 독립적으로 코드를 변경할 수 있도록 도와주는 모델]</p>
-<h3 id="1-branch-생성-차원이동"><a href="#1-branch-생성-차원이동" class="headerlink" title="1. branch 생성, 차원이동"></a>1. branch 생성, 차원이동</h3><ol>
-<li><code>git branch {file이름}</code></li>
-<li><code>git branch</code></li>
-<li><code>git checkout {file이름}</code> - 해당 파일로 이동하려고함 (차원 이동)</li>
-<li><code>git branch</code> - 해당파일에 *붙음을 확인 (복붙한뒤 메인을 옮긴 것)</li>
-</ol>
-
-
-<p> <img src="/images/191112branch1.png" alt=""></p>
-<h3 id="2-vi-add-status"><a href="#2-vi-add-status" class="headerlink" title="2. vi, add, status"></a>2. vi, add, status</h3><ol start="5">
-<li><p><code>vi README.md</code>- vi로 열어라</p>
-</li>
-<li><p><code>git status</code> - commit해야할 목록 확인</p>
-</li>
-<li><p><code>git add README.md</code> </p>
-</li>
-<li><p><code>git status</code> - 확인: On branch earth123 Changes to be committed</p>
-<p><img src="/images/191112branch2.png" alt=""></p>
-</li>
-</ol>
-<h3 id="3-commit"><a href="#3-commit" class="headerlink" title="3. commit"></a>3. commit</h3><ol start="9">
-<li><p><code>git commit -m &quot; &quot;</code> (commit하면서 vi없이 메세지를 붙일수있음:저장메세지/변경된내용을 상세하게 적으세요)</p>
-</li>
-<li><p><code>cat README.md</code> - 내용확인</p>
-</li>
-<li><p><code>git branch</code></p>
-<p><img src="/images/191112branch3.png" alt=""></p>
-<br>
-<br>
-<br>
-<br>
-
-</li>
-</ol>
-<h2 id="3-병합-merge"><a href="#3-병합-merge" class="headerlink" title="3. 병합(merge)"></a>3. 병합(merge)</h2><p>[브런치로 작업한 내용이 성공적일때 마스터에 돌아가서 기존 파일과 병합한다]</p>
-<h3 id="1-merge"><a href="#1-merge" class="headerlink" title="1. merge"></a>1. merge</h3><ol>
-<li><p><code>git checkout master</code> 마스터로 돌아온다.</p>
-</li>
-<li><p><code>git branch</code> 현재 차원을 확인</p>
-</li>
-<li><p><code>git merge {file name}</code> 마스터에서 브런치로 작업한 내용을 merge한다.</p>
-<ul>
-<li>수정된 내용이 나타난다.</li>
-</ul>
-<p><img src="/images/191112merge1.png" alt=""></p>
-</li>
-</ol>
-<p><code>git diff {file name}</code> = 현재 브런치와 {file name}의 다른점 확인 가능</p>
-<h3 id="2-flow-init"><a href="#2-flow-init" class="headerlink" title="2. flow init"></a>2. flow init</h3><ul>
-<li><p><code>git flow init</code> 이순간부터 깃을 인용하겠다</p>
-</li>
-<li><p><code>git flow feature start {flow-init}</code> 새롭게 만듬 -&gt; 브런치 체크아웃 동시작업해줌</p>
-</li>
-<li><p><code>git flow feature finish {flow-init}</code> -&gt; 끝낼때 사용시 간단하게 commit</p>
-</li>
-</ul>
-<br>
-<br>
-<br>
-<br>
-
-
-
-<h2 id="4-지우기-D"><a href="#4-지우기-D" class="headerlink" title="4. 지우기(-D)"></a>4. 지우기(-D)</h2><p><code>git branch</code> -&gt; <code>git branch -D {file이름}</code> -&gt; <code>git branch</code> -&gt; <code>cat README.md</code> - 실험한 파일 확인</p>
-<p> <img src="/images/191112delete1.png" alt=""></p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<h6 id="내가보기위해-만든내용-ㅠㅠ"><a href="#내가보기위해-만든내용-ㅠㅠ" class="headerlink" title="내가보기위해 만든내용.. (ㅠㅠ)"></a>내가보기위해 만든내용.. (ㅠㅠ)</h6>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1727,7 +1681,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1740,7 +1694,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1770,7 +1724,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
